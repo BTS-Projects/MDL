@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\VacationRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,6 +28,16 @@ class Vacation
      * @ORM\Column(type="datetime")
      */
     private $dateheureFin;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Atelier::class, mappedBy="vacations")
+     */
+    private $vacations;
+
+    public function __construct()
+    {
+        $this->vacations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -52,6 +64,36 @@ class Vacation
     public function setDateheureFin(\DateTimeInterface $dateheureFin): self
     {
         $this->dateheureFin = $dateheureFin;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Atelier>
+     */
+    public function getVacations(): Collection
+    {
+        return $this->vacations;
+    }
+
+    public function addVacation(Atelier $vacation): self
+    {
+        if (!$this->vacations->contains($vacation)) {
+            $this->vacations[] = $vacation;
+            $vacation->setVacations($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVacation(Atelier $vacation): self
+    {
+        if ($this->vacations->removeElement($vacation)) {
+            // set the owning side to null (unless already changed)
+            if ($vacation->getVacations() === $this) {
+                $vacation->setVacations(null);
+            }
+        }
 
         return $this;
     }
