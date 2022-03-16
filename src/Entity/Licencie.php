@@ -78,6 +78,11 @@ class Licencie
      */
     private $club;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Compte::class, mappedBy="licencie", cascade={"persist", "remove"})
+     */
+    private $compte;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -223,6 +228,28 @@ class Licencie
     public function setClub(?Club $club): self
     {
         $this->club = $club;
+
+        return $this;
+    }
+
+    public function getCompte(): ?Compte
+    {
+        return $this->compte;
+    }
+
+    public function setCompte(?Compte $compte): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($compte === null && $this->compte !== null) {
+            $this->compte->setLicencie(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($compte !== null && $compte->getLicencie() !== $this) {
+            $compte->setLicencie($this);
+        }
+
+        $this->compte = $compte;
 
         return $this;
     }
