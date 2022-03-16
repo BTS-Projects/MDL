@@ -39,6 +39,11 @@ class Inscription
      */
     private $restaurations;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Compte::class, mappedBy="inscription", cascade={"persist", "remove"})
+     */
+    private $compte;
+
     public function __construct()
     {
         $this->ateliers = new ArrayCollection();
@@ -143,6 +148,28 @@ class Inscription
                 $restauration->setInscription(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCompte(): ?Compte
+    {
+        return $this->compte;
+    }
+
+    public function setCompte(?Compte $compte): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($compte === null && $this->compte !== null) {
+            $this->compte->setInscription(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($compte !== null && $compte->getInscription() !== $this) {
+            $compte->setInscription($this);
+        }
+
+        $this->compte = $compte;
 
         return $this;
     }

@@ -37,6 +37,16 @@ class Compte
      */
     private $role;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Inscription::class, inversedBy="compte", cascade={"persist", "remove"})
+     */
+    private $inscription;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Licencie::class, inversedBy="compte", cascade={"persist", "remove"})
+     */
+    private $licencie;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +96,30 @@ class Compte
     public function setRole(string $role): self
     {
         $this->role = $role;
+
+        return $this;
+    }
+
+    public function getInscription(): ?Inscription
+    {
+        return $this->inscription;
+    }
+
+    public function setInscription(?Inscription $inscription): self
+    {
+        $this->inscription = $inscription;
+
+        return $this;
+    }
+
+    public function getLicencie(): ?Licencie
+    {
+        return $this->licencie;
+    }
+
+    public function setLicencie(?Licencie $licencie): self
+    {
+        $this->licencie = $licencie;
 
         return $this;
     }
