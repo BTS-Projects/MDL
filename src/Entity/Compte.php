@@ -18,7 +18,7 @@ class Compte
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=30)
+     * @ORM\Column(type="string", length=255)
      */
     private $email;
 
@@ -28,7 +28,7 @@ class Compte
     private $numlicence;
 
     /**
-     * @ORM\Column(type="string", length=30)
+     * @ORM\Column(type="string", length=255)
      */
     private $password;
 
