@@ -30,9 +30,14 @@ class Inscription
     private $ateliers;
 
     /**
-     * @ORM\OneToMany(targetEntity=Nuite::class)
+     * @ORM\OneToMany(targetEntity=Nuite::class, mappedBy="inscription")
      */
     private $nuites;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Restauration::class, mappedBy="inscription")
+     */
+    private $restaurations;
 
     public function __construct()
     {
@@ -94,7 +99,7 @@ class Inscription
     {
         if (!$this->nuites->contains($nuite)) {
             $this->nuites[] = $nuite;
-            //$nuite->setInscription($this);
+            $nuite->setInscription($this);
         }
 
         return $this;
@@ -104,9 +109,39 @@ class Inscription
     {
         if ($this->nuites->removeElement($nuite)) {
             // set the owning side to null (unless already changed)
-//            if ($nuite->getInscription() === $this) {
-//                $nuite->setInscription(null);
-//            }
+            if ($nuite->getInscription() === $this) {
+                $nuite->setInscription(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Restauration>
+     */
+    public function getRestaurations(): Collection
+    {
+        return $this->restaurations;
+    }
+
+    public function addRestauration(Restauration $restauration): self
+    {
+        if (!$this->restaurations->contains($restauration)) {
+            $this->restaurations[] = $restauration;
+            $restauration->setInscription($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRestauration(Restauration $restauration): self
+    {
+        if ($this->restaurations->removeElement($restauration)) {
+            // set the owning side to null (unless already changed)
+            if ($restauration->getInscription() === $this) {
+                $restauration->setInscription(null);
+            }
         }
 
         return $this;

@@ -33,6 +33,12 @@ class Nuite
      */
     private $categorie;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Inscription::class, inversedBy="nuites")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $inscription;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -70,6 +76,18 @@ class Nuite
     public function setCategorie(?CategorieChambre $categorie): self
     {
         $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    public function getInscription(): ?Inscription
+    {
+        return $this->inscription;
+    }
+
+    public function setInscription(?Inscription $inscription): self
+    {
+        $this->inscription = $inscription;
 
         return $this;
     }
