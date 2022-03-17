@@ -20,12 +20,12 @@ class Vacation
     private $id;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", name="dateheuredebut")
      */
     private $dateheureDebut;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", name="dateheurefin")
      */
     private $dateheureFin;
 

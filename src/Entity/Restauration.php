@@ -18,18 +18,19 @@ class Restauration
     private $id;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", name="daterestauration")
      */
     private $dateRestauration;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, name="typerepas")
      */
     private $typeRepas;
 
     /**
      * @ORM\ManyToOne(targetEntity=Inscription::class, inversedBy="restaurations")
      * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(name="idinscription")
      */
     private $inscription;
 

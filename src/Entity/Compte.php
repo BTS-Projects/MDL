@@ -39,11 +39,13 @@ class Compte
 
     /**
      * @ORM\OneToOne(targetEntity=Inscription::class, inversedBy="compte", cascade={"persist", "remove"})
+     * @ORM\Column(name="idinscription")
      */
     private $inscription;
 
     /**
      * @ORM\OneToOne(targetEntity=Licencie::class, inversedBy="compte", cascade={"persist", "remove"})
+     * @ORM\Column(name="idlicencie")
      */
     private $licencie;
 

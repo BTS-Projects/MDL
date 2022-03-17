@@ -20,7 +20,7 @@ class Qualite
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50, name="libellequalite")
      */
     private $LibelleQualite;
 
