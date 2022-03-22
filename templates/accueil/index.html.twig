@@ -8,7 +8,11 @@
         <tr>
             <td>Ateliers</td><td>Thèmes</td><td>Vacations</td>
         </tr>
-        
+        {% for ateliers in lesAteliers %}
+            <tr>
+            <td>{{ ateliers.libelle }}</td><td>{{ ateliers.theme }}</td><td>{{ ateliers.vacations }}</td>
+            </tr>
+        {% endfor %}
     </table>
                 
 {% endblock %}
