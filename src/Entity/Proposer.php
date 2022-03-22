@@ -18,19 +18,21 @@ class Proposer
     private $id;
 
     /**
-     * @ORM\Column(type="decimal", precision=10, scale=2)
+     * @ORM\Column(type="decimal", precision=10, scale=2, name="tarifnuite")
      */
     private $tarifNuite;
 
     /**
      * @ORM\ManyToOne(targetEntity=Hotel::class, inversedBy="tarifs")
      * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(name="idhotel")
      */
     private $hotel;
 
     /**
      * @ORM\ManyToOne(targetEntity=CategorieChambre::class, inversedBy="tarifs")
      * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(name="idcategorie")
      */
     private $categorie;
 

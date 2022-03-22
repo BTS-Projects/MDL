@@ -31,17 +31,21 @@ class Atelier
 
     /**
      * @ORM\ManyToMany(targetEntity=Theme::class, mappedBy="ateliers")
+     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(name="idtheme")
      */
     private $themes;
 
     /**
      * @ORM\ManyToOne(targetEntity=Vacation::class, inversedBy="vacations")
      * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(name="idvacation")
      */
     private $vacations;
 
     /**
      * @ORM\ManyToMany(targetEntity=Inscription::class, mappedBy="ateliers")
+     * @ORM\Column(name="idinscription")
      */
     private $inscriptions;
 
