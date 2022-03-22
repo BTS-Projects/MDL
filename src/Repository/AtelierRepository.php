@@ -44,6 +44,13 @@ class AtelierRepository extends ServiceEntityRepository
             $this->_em->flush();
         }
     }
+    
+    public function accueilAtelier(){
+$sql = "SELECT atelier.libelle, theme.libelle, vacation.dateheuredebut, vacation.dateheurefin 
+    from atelier inner JOIN theme on atelier.idtheme = theme.id
+    inner JOIN vacation on atelier.idvacation = vacation.id";
+    return $this->executeSQL($sql);
+    }
 
     // /**
     //  * @return Atelier[] Returns an array of Atelier objects

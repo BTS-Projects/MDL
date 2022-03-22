@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <h1> Au samedi 17 et dimanche 18 septembre 2022</h1>
+    <table>
+        <tr>
+            <td>Ateliers</td><td>Thèmes</td><td>Vacations</td>
+        </tr>
+        {% for ateliers in lesAteliers %}
+            <tr>
+            <td>{{ ateliers.libelle }}</td><td>{{ ateliers.theme }}</td><td>{{ ateliers.vacations }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+                
+{% endblock %}
