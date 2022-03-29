@@ -11,7 +11,7 @@ doctrine:
         # either here or in the DATABASE_URL env var (see .env file)
         #server_version: '13'
         dbname: '%env(DATABASE_NAME)%'
-        #host: 'localhost'
+        host: 'localhost:33306'
         user: '%env(DATABASE_USER)%'
         password: '%env(DATABASE_PWD)%'
     orm:
