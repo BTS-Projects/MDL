@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\AtelierRepository;
 use Doctrine\Persistence\ManagerRegistry;
+
 class AccueilController extends AbstractController{
  
     /**
