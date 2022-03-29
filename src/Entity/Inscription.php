@@ -35,14 +35,14 @@ class Inscription
     private $nuites;
 
     /**
+     * @ORM\OneToMany(targetEntity=Restauration::class, mappedBy="inscription")
+     */
+    private $restaurations;
+
+    /**
      * @ORM\OneToOne(targetEntity=Compte::class, mappedBy="inscription", cascade={"persist", "remove"})
      */
     private $compte;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Restauration::class)
-     */
-    private $restaurations;
 
     public function __construct()
     {
@@ -122,6 +122,36 @@ class Inscription
         return $this;
     }
 
+    /**
+     * @return Collection<int, Restauration>
+     */
+    public function getRestaurations(): Collection
+    {
+        return $this->restaurations;
+    }
+
+    public function addRestauration(Restauration $restauration): self
+    {
+        if (!$this->restaurations->contains($restauration)) {
+            $this->restaurations[] = $restauration;
+            $restauration->setInscription($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRestauration(Restauration $restauration): self
+    {
+        if ($this->restaurations->removeElement($restauration)) {
+            // set the owning side to null (unless already changed)
+            if ($restauration->getInscription() === $this) {
+                $restauration->setInscription(null);
+            }
+        }
+
+        return $this;
+    }
+
     public function getCompte(): ?Compte
     {
         return $this->compte;
@@ -140,30 +170,6 @@ class Inscription
         }
 
         $this->compte = $compte;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Restauration>
-     */
-    public function getRestaurations(): Collection
-    {
-        return $this->restaurations;
-    }
-
-    public function addRestauration(Restauration $restauration): self
-    {
-        if (!$this->restaurations->contains($restauration)) {
-            $this->restaurations[] = $restauration;
-        }
-
-        return $this;
-    }
-
-    public function removeRestauration(Restauration $restauration): self
-    {
-        $this->restaurations->removeElement($restauration);
 
         return $this;
     }
