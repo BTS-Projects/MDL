@@ -27,13 +27,6 @@ class Restauration
      */
     private $typeRepas;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Inscription::class, inversedBy="restaurations")
-     * @ORM\JoinColumn(nullable=false)
-     * @ORM\Column(name="idinscription")
-     */
-    private $inscription;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -59,18 +52,6 @@ class Restauration
     public function setTypeRepas(string $typeRepas): self
     {
         $this->typeRepas = $typeRepas;
-
-        return $this;
-    }
-
-    public function getInscription(): ?Inscription
-    {
-        return $this->inscription;
-    }
-
-    public function setInscription(?Inscription $inscription): self
-    {
-        $this->inscription = $inscription;
 
         return $this;
     }
