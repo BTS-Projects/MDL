@@ -11,26 +11,25 @@ use Doctrine\Persistence\ManagerRegistry;
 class AccueilController extends AbstractController{
  
     /**
-     * @Route("/accueil", name="app_accueil");
+     * @Route("/", name="app_accueil");
      */
-    public function index(): Response
-    {
-        
-        return $this->render('accueil/index.html.twig', [
-            'controller_name' => 'AccueilController',
+public function index(): Response {
+        return $this->render('/accueil/index.html.twig', [
+                    'controller_name' => 'AccueilController',
         ]);
     }
 
-    /**
-     * @Route("/accueilAtelier", name="atelier_accueil");
-     * @return type
-     */
-public function accueilAtelier(){
-    
-    $types = $repo->findAll();
-            return $this->render('accueil/index.html.twig', 
-                    ['ateliers' =>$types,
-                        ]);
-}
-
+//    /**
+//     * @Route("/accueil_atelier", name="atelier_accueil");
+//     * @Route("/");
+//     * @return type
+//     */
+//public function accueilAtelier(){
+//    
+//    $types = $repo->findAll();
+//            return $this->render('accueil/accueil.html.twig', 
+//                    ['ateliers' =>$types,
+//                        ]);}
+//
+//
 }
