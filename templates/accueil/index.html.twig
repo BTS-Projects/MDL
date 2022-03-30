@@ -3,21 +3,28 @@
 
 {% block body %}
     <h1 class="d-flex justify-content-center"> Du samedi 17 au dimanche 18 septembre 2022</h1>
-    
-        <tr>
-            <td class="test">Ateliers</td><td>Thèmes</td><td>Vacations</td>
-        </tr>
+    <h3 id="presentation-atelier">Presentation des ateliers</h3>
         {% for ateliers in lesAteliers %}
             <table class="table table-dark table-striped">
                 <thead>
                     <tr>{{ ateliers.libelle }}</tr>
                 </thead>
             <tr>
-            <td>{{ ateliers.libelle }}</td><td>{{ ateliers.theme }}</td><td>{{ ateliers.vacations }}</td>
+                <td></td><td>{{ ateliers.vacation }}</td>
             </tr>
+            <tr>
+            <p>Nombre de place maximal : {{ ateliers.nb_place_maxi }}
+            </tr>
+            </table>
+            <br>
         {% endfor %}
-    </table>
-                
+        <h2>Les inscriptions :</h2>
+        <br>
+        <p>Le prix d'inscription au congrés et de 110€.<br>
+            Les accompagnateurs devront payer 30€ par repas ceci étant le<br>
+        <li>samedi midi</li>
+        <li>samedi soir</li>
+        <li>dimanche midi</li></p>
 {% endblock %}
 
 
