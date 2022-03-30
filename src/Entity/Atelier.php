@@ -35,21 +35,20 @@ class Atelier
     private $themes;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Vacation::class, inversedBy="vacations")
-     * @ORM\JoinColumn(nullable=false)
-     * @ORM\Column(name="idvacation")
-     */
-    private $vacations;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Inscription::class, mappedBy="ateliers")
      */
     private $inscriptions;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Vacation::class, mappedBy="atelier", orphanRemoval=true)
+     */
+    private $vacations;
 
     public function __construct()
     {
         $this->themes = new ArrayCollection();
         $this->inscriptions = new ArrayCollection();
+        $this->vacations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -108,18 +107,6 @@ class Atelier
         return $this;
     }
 
-    public function getVacations(): ?Vacation
-    {
-        return $this->vacations;
-    }
-
-    public function setVacations(?Vacation $vacations): self
-    {
-        $this->vacations = $vacations;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Inscription>
      */
@@ -142,6 +129,36 @@ class Atelier
     {
         if ($this->inscriptions->removeElement($inscription)) {
             $inscription->removeAtelier($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Vacation>
+     */
+    public function getVacations(): Collection
+    {
+        return $this->vacations;
+    }
+
+    public function addVacation(Vacation $vacation): self
+    {
+        if (!$this->vacations->contains($vacation)) {
+            $this->vacations[] = $vacation;
+            $vacation->setAtelier($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVacation(Vacation $vacation): self
+    {
+        if ($this->vacations->removeElement($vacation)) {
+            // set the owning side to null (unless already changed)
+            if ($vacation->getAtelier() === $this) {
+                $vacation->setAtelier(null);
+            }
         }
 
         return $this;

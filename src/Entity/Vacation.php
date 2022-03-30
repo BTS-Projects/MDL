@@ -30,9 +30,10 @@ class Vacation
     private $dateheureFin;
 
     /**
-     * @ORM\OneToMany(targetEntity=Atelier::class, mappedBy="vacations")
+     * @ORM\ManyToOne(targetEntity=Atelier::class, inversedBy="vacations")
      */
-    private $vacations;
+    private $atelier;
+
 
     public function __construct()
     {
@@ -68,32 +69,14 @@ class Vacation
         return $this;
     }
 
-    /**
-     * @return Collection<int, Atelier>
-     */
-    public function getVacations(): Collection
+    public function getAtelier(): ?Atelier
     {
-        return $this->vacations;
+        return $this->atelier;
     }
 
-    public function addVacation(Atelier $vacation): self
+    public function setAtelier(?Atelier $atelier): self
     {
-        if (!$this->vacations->contains($vacation)) {
-            $this->vacations[] = $vacation;
-            $vacation->setVacations($this);
-        }
-
-        return $this;
-    }
-
-    public function removeVacation(Atelier $vacation): self
-    {
-        if ($this->vacations->removeElement($vacation)) {
-            // set the owning side to null (unless already changed)
-            if ($vacation->getVacations() === $this) {
-                $vacation->setVacations(null);
-            }
-        }
+        $this->atelier = $atelier;
 
         return $this;
     }

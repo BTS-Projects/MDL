@@ -6,11 +6,15 @@ table{
     color : red;
 }
 
-img, .navbar {
+img, #navbar {
     width: 200px;
     height: 100px!important;
 }
-img, .footer {
-    width: 200px;
-    height: 100px!important;
+img, #ffe {
+    width: 250px;
+    height: 150px!important;
+}
+
+.nav-item {
+    padding-right: 30px;
 }
