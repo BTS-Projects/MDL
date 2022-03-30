@@ -31,5 +31,5 @@ public function index(): Response {
 //                    ['ateliers' =>$types,
 //                        ]);}
 //
-//
+
 }
