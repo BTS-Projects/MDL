@@ -6,15 +6,22 @@ table{
     color : red;
 }
 
-img, #navbar {
+.nav-item {
+    padding-right: 30px;
+
+img {
+    width: 250px;
+    height: 200px!important;
+}
+
+#presentation-atelier{
+    text-align: center;
+    color:#000;
+
+img, .navbar {
     width: 200px;
     height: 100px!important;
 }
-img, #ffe {
-    width: 250px;
-    height: 150px!important;
-}
-
-.nav-item {
-    padding-right: 30px;
-}
+img, .footer {
+    width: 200px;
+    height: 100px!important;
