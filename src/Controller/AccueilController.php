@@ -22,13 +22,12 @@ public function index(): Response {
     /**
      * @Route("/accueil_atelier", name="atelier_accueil");
      * @Route("/");
-     * @return type
      */
 public function accueilAtelier(AtelierRepository $repo){
     
-    $types = $repo->findAll();
+    $lesAteliers = $repo->findAll();
             return $this->render('accueil/index.html.twig', 
-                    ['ateliers' =>$types,
+                    ['lesAteliers' =>$lesAteliers,
                         ]);}
 
 
