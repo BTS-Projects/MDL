@@ -2,6 +2,28 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/src/Entity/Licencie.php</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/src/Entity/Nuite.php</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/src/Entity/Compte.php</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/src/Entity/CategorieChambre.php</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/config/routes.yaml</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/config/packages/prod/routing.yaml</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/config/packages/prod/monolog.yaml</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/src/Entity/Atelier.php</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/symfony.lock</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/config/routes/annotations.yaml</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/phpunit.xml.dist</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/src/Entity/Restauration.php</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/src/Entity/Vacation.php</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/config/packages/prod/doctrine.yaml</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/config/packages/doctrine.yaml</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/src/Entity/Proposer.php</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/config/services.yaml</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/src/Entity/Qualite.php</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/.env</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/src/Entity/Inscription.php</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/config/packages/prod/deprecations.yaml</file>
+        </group>
     </open-files>
 </project-private>
