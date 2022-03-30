@@ -31,8 +31,6 @@ class Atelier
 
     /**
      * @ORM\ManyToMany(targetEntity=Theme::class, mappedBy="ateliers")
-     * @ORM\JoinColumn(nullable=false)
-     * @ORM\Column(name="idtheme")
      */
     private $themes;
 
@@ -45,7 +43,6 @@ class Atelier
 
     /**
      * @ORM\ManyToMany(targetEntity=Inscription::class, mappedBy="ateliers")
-     * @ORM\Column(name="idinscription")
      */
     private $inscriptions;
 
