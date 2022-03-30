@@ -5,3 +5,8 @@ table{
 .test{
     color : red;
 }
+
+img {
+    width: 250px;
+    height: 200px!important;
+}
