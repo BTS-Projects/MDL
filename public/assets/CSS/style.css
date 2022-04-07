@@ -8,7 +8,7 @@ table{
 
 .nav-item {
     padding-right: 30px;
-
+}
 img {
     width: 250px;
     height: 200px!important;
@@ -17,7 +17,7 @@ img {
 #presentation-atelier{
     text-align: center;
     color:#000;
-
+}
 img, .navbar {
     width: 200px;
     height: 100px!important;
@@ -25,3 +25,4 @@ img, .navbar {
 img, .footer {
     width: 200px;
     height: 100px!important;
+}
