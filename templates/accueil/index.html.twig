@@ -25,6 +25,15 @@
         <li>samedi midi</li>
         <li>samedi soir</li>
         <li>dimanche midi</li></p>
+    <br>
+    {% for hotel in lesHotels %}
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>{{ hotel.pnom }}</tr>
+        </thead>
+    </table>
+    {% endfor %}
+    
 {% endblock %}
  
 
