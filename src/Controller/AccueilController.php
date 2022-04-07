@@ -26,8 +26,10 @@ public function index(): Response {
 public function accueilAtelier(AtelierRepository $repo){
     
     $lesAteliers = $repo->findAll();
+    $lesHotels = $repo->findAll();
             return $this->render('accueil/index.html.twig', 
-                    ['lesAteliers' =>$lesAteliers,
+                    ['lesAteliers' =>$lesAteliers, 
+                     'lesHotels' => $lesHotels,
                         ]);}
 
 

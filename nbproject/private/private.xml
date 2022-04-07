@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Projet_2021_2022/MDL/.env</file>
-            <file>file:/D:/Projet_2021_2022/MDL/templates/accueil/index.html.twig</file>
+            <file>file:/C:/Users/julien.lempereur/Documents/Roche/MDL/templates/accueil/index.html.twig</file>
+            <file>file:/C:/Users/julien.lempereur/Documents/Roche/MDL/src/Controller/AccueilController.php</file>
+            <file>file:/C:/Users/julien.lempereur/Documents/Roche/MDL/src/Repository/AtelierRepository.php</file>
+            <file>file:/C:/Users/julien.lempereur/Documents/Roche/MDL/templates/base.html.twig</file>
+            <file>file:/C:/Users/julien.lempereur/Documents/Roche/MDL/src/Entity/Atelier.php</file>
+            <file>file:/C:/Users/julien.lempereur/Documents/Roche/MDL/templates/elements/footer.html.twig</file>
         </group>
     </open-files>
 </project-private>

@@ -1,5 +1,6 @@
 table{
     text-align: center;
+    margin-left: 150px;
 }
 
 .test{
@@ -25,3 +26,8 @@ img, .navbar {
 img, .footer {
     width: 200px;
     height: 100px!important;
+}
+
+.presentation{
+    margin-left: 150px;
+}
