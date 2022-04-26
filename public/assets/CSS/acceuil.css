@@ -16,6 +16,11 @@ and open the template in the editor.
     margin-left: 150px;
 }
 
+.ateliers{
+
+    text-align: center;
+}
+
 body{
     background-color: #e2e9e840 !important;
 }
