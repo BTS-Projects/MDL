@@ -20,10 +20,12 @@ img {
     color:#000;
 }
 img, .navbar {
-    width: 200px;
-    height: 100px!important;
+    /*//width: 200px;*/
+    height: 140px!important;
+    
 }
 img, .footer {
-    width: 200px;
-    height: 100px!important;
+/*    //width: 200px;*/
+    height: auto;
+    bottom: 0;
 }

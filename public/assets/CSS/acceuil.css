@@ -11,3 +11,11 @@ and open the template in the editor.
 #presentation{
     margin-left:150px;
 }
+
+.accueil{
+    margin-left: 150px;
+}
+
+body{
+    background-color: #e2e9e840 !important;
+}
