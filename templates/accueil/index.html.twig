@@ -3,19 +3,22 @@
 
 {% block body %}
     <h1 class="d-flex justify-content-center"> Du samedi 17 au dimanche 18 septembre 2022</h1>
-    <h3 id="presentation-atelier"Presentation des ateliers></h3>
-        {% for ateliers in lesAteliers %}
+    <h3 id="presentation-atelier" >Presentation des ateliers</h3>
+    {% for ateliers in lesAteliers %}
+        <div class="accueil">
             <table class="table table-dark table-striped ">
                 <thead>
                     <tr>{{ ateliers.getLibelle }}</tr>
                 </thead>
-            <tr>
-            </tr>
-            <tr>
-            <p>Nombre de places maximale : {{ ateliers.nbPlaceMaxi }}
-            </tr>
+                <tr>
+                </tr>
+                <tr>
+                <p>Nombre de places maximale : {{ ateliers.nbPlaceMaxi }}
+                    </tr>
             </table>
-        {% endfor %}
+        </div>
+    {% endfor %}x
+    <div class="accueil">
         <h2>Les inscriptions :</h2>
         <br>
         <p>Le prix d'inscription au congrés et de 110€.
@@ -25,16 +28,17 @@
         <li>samedi soir</li>
         <li>dimanche midi</li></p>
     <br>
-    {% for hotel in lesHotels %}
+</div>
+{% for hotel in lesHotels %}
     <table class="table table-dark table-striped">
         <thead>
             <tr>
         <p>{{ hotel.getPnom }}</p>
     </tr>
-        </thead>
-    </table>
-    {% endfor %}
-    
+</thead>
+</table>
+{% endfor %}
+
 {% endblock %}
- 
+
 
