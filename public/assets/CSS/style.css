@@ -9,6 +9,7 @@ table{
 
 .nav-item {
     padding-right: 30px;
+    
 }
 img {
     width: 250px;
@@ -22,10 +23,33 @@ img {
 img, .navbar {
     /*//width: 200px;*/
     height: 140px!important;
-    
 }
+
 img, .footer {
 /*    //width: 200px;*/
     height: auto;
     bottom: 0;
+}
+
+navbar + div{
+    line-height: 150px;
+}
+
+.nav-link{
+    padding-top: 2.5rem!important;
+}
+
+.nav-link:hover{
+    padding-top: 2.5rem!important;
+    text-decoration: underline;
+}
+
+.footer{
+    position: fixed;
+    bottom:0;
+    width:100%;       
+}
+
+.divFooter{
+    padding-top: 2.5rem;
 }
