@@ -2,10 +2,13 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
+    <br>
     <h1 class="d-flex justify-content-center"> Du samedi 17 au dimanche 18 septembre 2022</h1>
+    <br>
     <h3 id="presentation-atelier" >Presentation des ateliers</h3>
+    <br>
     {% for ateliers in lesAteliers %}
-        <div class="accueil">
+        <div class="ateliers">
             <table class="table table-dark table-striped ">
                 <thead>
                     <tr>{{ ateliers.getLibelle }}</tr>
@@ -13,11 +16,25 @@
                 <tr>
                 </tr>
                 <tr>
-                <p>Nombre de places maximale : {{ ateliers.nbPlaceMaxi }}
+                <p>Nombre de places maximale : {{ ateliers.getNbPlaceMaxi }}
                     </tr>
             </table>
         </div>
-    {% endfor %}x
+    {% endfor %}
+    <table>
+            <tr>
+                <td>   
+                    <h3> les hotels </h3>
+                    {% for hotel in lesHotels %}
+                        <table class="table table-dark table-striped">
+                            <tbody>
+                                <tr>
+                            <p>{{ hotel.getPnom }}</p>
+                </tr>
+            </tbody>
+        </table>
+    {% endfor %}
+</td><td>
     <div class="accueil">
         <h2>Les inscriptions :</h2>
         <br>
@@ -29,16 +46,10 @@
         <li>dimanche midi</li></p>
     <br>
 </div>
-{% for hotel in lesHotels %}
-    <table class="table table-dark table-striped">
-        <thead>
-            <tr>
-        <p>{{ hotel.getPnom }}</p>
-    </tr>
-</thead>
+</td>
+</tr>
 </table>
-{% endfor %}
-
+    <div class="espace"></div>
 {% endblock %}
 
 
