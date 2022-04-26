@@ -22,5 +22,9 @@ and open the template in the editor.
 }
 
 body{
-    background-color: #e2e9e840 !important;
+    background-color: #F7F9F9 !important;
+}
+
+.espace{
+    height: 70px;
 }
