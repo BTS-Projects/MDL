@@ -1,5 +1,6 @@
 input{
-    width: 500px;
+    width: 500px!important;
+    margin:auto;
 }
 
 form{
@@ -13,5 +14,9 @@ form{
 }
 
 button{
-    margin-top: 10px; 
+    margin-top: 10px;
+}
+
+.buttonSubmit{
+    text-align: center;
 }

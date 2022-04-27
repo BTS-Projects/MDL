@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -37,6 +38,11 @@ class User
      */
 
     private $role;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
 
 
     public function getId(): ?int
@@ -89,6 +95,18 @@ class User
     {
         $this->role = $role;
 
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }
