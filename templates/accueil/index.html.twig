@@ -8,7 +8,7 @@
     <h3 id="presentation-atelier" >Presentation des ateliers</h3>
     <br>
     {% for ateliers in lesAteliers %}
-        <div class="ateliers">
+        <div class="ateliers centrertexte">
             <table class="table table-dark table-striped ">
                 <thead>
                     <tr>{{ ateliers.getLibelle }}</tr>
@@ -21,34 +21,37 @@
             </table>
         </div>
     {% endfor %}
-    <table>
-            <tr>
-                <td>   
-                    <h3> les hotels </h3>
+    <table class="centretableau">
+        <tr>
+            <td>
+                <div class="ecart">
+                    <h2 class="centrertexte"> les hotels </h2>
                     {% for hotel in lesHotels %}
                         <table class="table table-dark table-striped">
                             <tbody>
                                 <tr>
                             <p>{{ hotel.getPnom }}</p>
-                </tr>
-            </tbody>
-        </table>
-    {% endfor %}
-</td><td>
-    <div class="accueil">
-        <h2>Les inscriptions :</h2>
-        <br>
-        <p>Le prix d'inscription au congrés et de 110€.
-            <br>
-            Les accompagnateurs devront payer 30€ par repas ceci étant le<br>   
-        <li>samedi midi</li>
-        <li>samedi soir</li>
-        <li>dimanche midi</li></p>
-    <br>
-</div>
-</td>
-</tr>
-</table>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                {% endfor %}
+            </td><td>
+                <div>
+                    <h2 class="centrertexte">Les inscriptions :</h2>
+                    <br>
+                    <p>Le prix d'inscription au congrés et de 110€.
+                        <br>
+                        Les accompagnateurs devront payer 30€ par repas ceci étant le<br>   
+                    <li>samedi midi</li>
+                    <li>samedi soir</li>
+                    <li>dimanche midi</li></p>
+                    <br>
+                </div>
+            </td>
+        </tr>
+    </table>
     <div class="espace"></div>
 {% endblock %}
 

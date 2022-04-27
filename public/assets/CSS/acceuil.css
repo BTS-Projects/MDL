@@ -17,7 +17,6 @@ and open the template in the editor.
 }
 
 .ateliers{
-
     text-align: center;
 }
 
@@ -27,4 +26,16 @@ body{
 
 .espace{
     height: 70px;
+}
+
+.centrertexte{
+    text-align: center;
+}
+
+.centretableau{
+    margin-left: 35%;
+}
+
+.ecart{
+    margin-right: 50px;
 }
