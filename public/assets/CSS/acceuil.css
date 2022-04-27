@@ -21,8 +21,9 @@ and open the template in the editor.
 }
 
 body{
-    background-color: #F7F9F9 !important;
+    background-color: #F7F9F9;
 }
+
 
 .espace{
     margin-bottom:  25%;
@@ -31,11 +32,25 @@ body{
 .centrertexte{
     text-align: center;
 }
+@media(min-width: 992px){
+    .centretableau{
+        margin-left: 29%;
+    }
+}
 
-.centretableau{
-    margin-left: 29%;
+@media(max-width: 991px){
+    .centretableau{
+        margin-left: 15%;
+    }
 }
 
 .ecart{
     margin-right: 50px;
+}
+@media(max-width :991px){
+
+    .bouttonnavbar{
+        margin-right: 65%;
+    }
+
 }
