@@ -4,15 +4,15 @@ security:
         users_in_memory: { memory: null }
         in_database:
             entity:
-                class: App\Entity\User, App\Entity\Licencie
-                property: email
+                class: App\Entity\Licencie
+                property: mail
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: lazy
-            provider: users_in_memory
+            provider: in_database
             
             form_login: 
                 login_path: connexion_login
