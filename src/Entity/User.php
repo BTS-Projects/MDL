@@ -35,17 +35,9 @@ class User
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $email;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $username;
+    private $role;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $password;
 
     public function getId(): ?int
     {
@@ -87,39 +79,16 @@ class User
 
         return $this;
     }
-
-    public function getEmail(): ?string
+		
+    public function getRole(): ?string
     {
-        return $this->email;
+        return $this->role;
     }
 
-    public function setEmail(string $email): self
+    public function setRole(string $role): self
     {
-        $this->email = $email;
+        $this->role = $role;
 
-        return $this;
-    }
-
-    public function getUsername(): ?string
-    {
-        return $this->username;
-    }
-
-    public function setUsername(string $username): self
-    {
-        $this->username = $username;
-
-        return $this;
-    }
-
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
 
         return $this;
     }
