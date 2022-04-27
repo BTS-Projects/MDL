@@ -15,9 +15,9 @@ security:
             provider: users_in_memory
             
             form_login: 
-                login_path: Mettre nom du chemin du formulaire de login
+                login_path: connexion_login
                 
-                check_path: Mettre nom du chemin du formulaire de login
+                check_path: connexion_login
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
