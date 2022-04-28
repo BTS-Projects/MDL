@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/julien.lempereur/Documents/Roche/MDL/public/assets/CSS/login.css</file>
-            <file>file:/C:/Users/julien.lempereur/Documents/Roche/MDL/config/packages/security.yaml</file>
-            <file>file:/C:/Users/julien.lempereur/Documents/Roche/MDL/src/Entity/User.php</file>
-            <file>file:/C:/Users/julien.lempereur/Documents/Roche/MDL/src/Controller/LoginController.php</file>
-            <file>file:/C:/Users/julien.lempereur/Documents/Roche/MDL/templates/security/login.html.twig</file>
-            <file>file:/C:/Users/julien.lempereur/Documents/Roche/MDL/src/Security/LoginAuthenticator.php</file>
+
+            <file>file:/E:/BTS%20SIO%202/AP/CONTEXTE2/MDL/src/Form/CreationType.php</file>
+
         </group>
     </open-files>
 </project-private>
