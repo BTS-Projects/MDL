@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\AtelierRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Repository\HotelRepository;
 
 class AccueilController extends AbstractController{
  
@@ -23,11 +24,13 @@ public function index(): Response {
      * @Route("/accueil_atelier", name="atelier_accueil");
      * @Route("/");
      */
-public function accueilAtelier(AtelierRepository $repo){
+public function accueilAtelier(AtelierRepository $repo,HotelRepository $repoH ){
     
     $lesAteliers = $repo->findAll();
+    $lesHotels = $repoH->findAll();
             return $this->render('accueil/index.html.twig', 
-                    ['lesAteliers' =>$lesAteliers,
+                    ['lesAteliers' =>$lesAteliers, 
+                     'lesHotels' => $lesHotels,
                         ]);}
 
 

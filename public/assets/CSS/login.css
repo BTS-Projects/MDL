@@ -1,0 +1,22 @@
+input{
+    width: 500px!important;
+    margin:auto;
+}
+
+form{
+    margin-top: 30px;
+}
+
+.formulaire{
+    margin-top: 150px;
+    border-left-width: 100%;
+    border-left-color: blue;
+}
+
+button{
+    margin-top: 10px;
+}
+
+.buttonSubmit{
+    text-align: center;
+}

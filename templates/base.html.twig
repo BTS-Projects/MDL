@@ -7,8 +7,10 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css">
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+            {#<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">#}
             <link href="{{ asset('assets/CSS/style.css') }}" rel="stylesheet" type="text/css"/>
+            <link href="{{ asset('assets/CSS/acceuil.css') }}" rel="stylesheet" type="text/css"/>
+            <link href="{{ asset('assets/CSS/login.css') }}" rel="stylesheet" type="text/css"/>
         {% endblock %}
 
         {% block javascripts %}
