@@ -44,13 +44,19 @@ body{
     }
 }
 
+
+
 .ecart{
     margin-right: 50px;
 }
-@media(max-width :991px){
 
+
+@media(min-width: 901px)
+and (max-width :991px){
     .bouttonnavbar{
         margin-right: 65%;
     }
-
+}
+.boutonnavbar{
+    margin-right: 63%;
 }

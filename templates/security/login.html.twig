@@ -17,7 +17,6 @@
             <h1 class="d-flex justify-content-center">Connexion</h1>
             <input class="d-flex justify-content-center" type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus placeholder="Email">
             <input class="d-flex justify-content-center" type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required placeholder="Mot de passe">
-
             <input type="hidden" name="_csrf_token"
                    value="{{ csrf_token('authenticate') }}">
 
@@ -35,6 +34,8 @@
                 <button class="btn btn-success" type="submit">
                     Sign in
                 </button>
+                <br>
+                <a href="/restorationdumotdepasse">mot de passe oubliée ?</a>
             </div>
     </form>
 </div>
