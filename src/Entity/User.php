@@ -9,7 +9,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
-class User implements UserInterface
+class User 
 {
     /**
      * @ORM\Id
@@ -70,7 +70,6 @@ class User implements UserInterface
     public function setMdp(string $mdp): self
     {
         $this->mdp = $mdp;
-
         return $this;
     }
 
@@ -94,8 +93,6 @@ class User implements UserInterface
     public function setRole(string $role): self
     {
         $this->role = $role;
-
-
         return $this;
     }
 
