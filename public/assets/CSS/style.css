@@ -18,6 +18,7 @@ img {
 img, .navbar {
     /*//width: 200px;*/
     height: 140px!important;
+    padding: 0rem 0rem !important
 }
 
 img, .footer {
@@ -48,4 +49,8 @@ navbar + div{
 
 .divFooter{
     padding-top: 2.5rem;
+}
+
+.lienaccueil{
+    color: black !important;
 }
