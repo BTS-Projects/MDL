@@ -2,18 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-
         <group>
-
-            <file>file:/C:/Users/julien.lempereur/Documents/Roche/MDL/public/assets/CSS/login.css</file>
-            <file>file:/C:/Users/julien.lempereur/Documents/Roche/MDL/config/packages/security.yaml</file>
-            <file>file:/C:/Users/julien.lempereur/Documents/Roche/MDL/src/Entity/User.php</file>
-            <file>file:/C:/Users/julien.lempereur/Documents/Roche/MDL/src/Controller/LoginController.php</file>
-            <file>file:/C:/Users/julien.lempereur/Documents/Roche/MDL/templates/security/login.html.twig</file>
-            <file>file:/C:/Users/julien.lempereur/Documents/Roche/MDL/src/Entity/Theme.php</file>
-            <file>file:/C:/Users/julien.lempereur/Documents/Roche/MDL/src/Repository/UserRepository.php</file>
-            <file>file:/C:/Users/julien.lempereur/Documents/Roche/MDL/src/Security/LoginAuthenticator.php</file>
-
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/templates/user/new.html.twig</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/migrations/Version20220427143527.php</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/src/Entity/User.php</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/templates/user/_form.html.twig</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/migrations/Version20220501143646.php</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/migrations/Version20220503101954.php</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/src/Controller/UserController.php</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/src/Form/UserType.php</file>
+            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/migrations/Version20220429155306.php</file>
         </group>
     </open-files>
 </project-private>
