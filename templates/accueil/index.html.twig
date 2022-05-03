@@ -31,6 +31,12 @@
                             <tbody>
                                 <tr>
                             <p>{{ hotel.getPnom }}</p>
+                            {% if hotel.getId == 1 %}
+                                <p>Single : 50€ la nuit<br>Double : 55€ la nuit</p>
+                                
+                                {% else %}
+                                <p>Single : 45€ la nuit<br>Double 50€ la nuit</p>
+                            {% endif %}
                             </tr>
 
                             </tbody>
