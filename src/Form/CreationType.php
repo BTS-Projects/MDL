@@ -13,7 +13,7 @@ class CreationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('numeroLicence')
+            ->add('numLicence')
             ->add('password', RepeatedType::class, [
                 'type'=> PasswordType::class,
                 'invalid_message' => 'The password fields must match.',
