@@ -60,6 +60,7 @@ class UserController extends AbstractController {
             if ($i < count($users)) {
                 //oui il existe déjà
                 //redirect
+                return $this->redirectToRoute('app_login', [], Response::HTTP_SEE_OTHER);
             } else {
                 //il n'existe pas on vérifie que c'est bien un licencier
                 $i = 0;
@@ -89,7 +90,7 @@ class UserController extends AbstractController {
 
                     
                 } else {
-                    //erreur pas un licencier
+                    return $this->redirectToRoute('app_accueil', [], Response::HTTP_SEE_OTHER);
                 }
                 return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
             }
