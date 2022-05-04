@@ -35,11 +35,6 @@ class Inscription
     private $nuites;
 
     /**
-     * @ORM\OneToOne(targetEntity=Compte::class, mappedBy="inscription", cascade={"persist", "remove"})
-     */
-    private $compte;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Restauration::class)
      */
     private $restaurations;
