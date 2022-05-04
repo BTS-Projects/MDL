@@ -6,6 +6,9 @@ use App\Repository\VacationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\GreaterThan;
+
 
 /**
  * @ORM\Entity(repositoryClass=VacationRepository::class)
@@ -26,6 +29,7 @@ class Vacation
 
     /**
      * @ORM\Column(type="datetime", name="dateheurefin")
+     * @Assert\GreaterThan(dateheureDebut)
      */
     private $dateheureFin;
 
@@ -61,7 +65,7 @@ class Vacation
     {
         return $this->dateheureFin;
     }
-
+    
     public function setDateheureFin(\DateTimeInterface $dateheureFin): self
     {
         $this->dateheureFin = $dateheureFin;
