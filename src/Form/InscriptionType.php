@@ -16,21 +16,7 @@ class InscriptionType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder
-            ->add('licencie', EntityType::class,[
-                'label'=>'email',
-                'class'=>Licencie::class
-            ])
-            ->add('dateInscription', DateType::class)
-//            ->add('ateliers', EntityType::class,[
-//                'label'=>"Escrime",
-//                'class'=> Atelier::class,
-//            ])
-            ->add('compte')
-            ->add('restaurations')
                 
-            ->add('save',SubmitType::class)
-        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

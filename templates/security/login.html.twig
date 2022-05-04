@@ -16,9 +16,9 @@
 
     <h1 class="h3 mb-3 font-weight-normal" id="alignetitre">Please sign in</h1>
     <label class="alignetexte" for="inputNumLicence">Num Licence</label>
-    <input type="text" value="{{ last_username }}" name="numLicence" id="inputNumLicence" class="form-control" autocomplete="username" required autofocus>
+    <input type="text" value="{{ last_username }}" name="numLicence" id="inputNumLicence" class="form-control inputLogin" autocomplete="username" required autofocus>
     <label class="alignetexte" for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+    <input type="password" name="password" id="inputPassword" class="form-control inputLogin" autocomplete="current-password" required>
 
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
