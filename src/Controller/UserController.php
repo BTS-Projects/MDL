@@ -53,12 +53,14 @@ class UserController extends AbstractController {
                     $passwordEncoder->encodePassword($user, $user->getPassword())
             );
             $user->setRoles(["ROLE_INSCRIT"]);
+            $user->setIsVerified(false);
             $i=0;
             while($i < count($licencies) && $licencies[$i]->getNumlicence() != $user->getNumLicence()  ) {
                 $i++;
             }
             if ($i < count($licencies)){
                 $mail = $licencies[$i]->getMail();
+                $user->setEmail($mail);
                 $entityManager->persist($user);
                 $entityManager->flush();
             }
