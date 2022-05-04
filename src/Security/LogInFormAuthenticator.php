@@ -94,7 +94,9 @@ class LogInFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
             return new RedirectResponse($targetPath);
         }
-
+        //on renvoie à la liste des utilisateurs
+        return new RedirectResponse($this->urlGenerator->generate('app_user_index'));
+        
         // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
         throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
