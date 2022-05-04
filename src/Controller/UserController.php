@@ -161,5 +161,10 @@ class UserController extends AbstractController {
 
         return $this->redirectToRoute('app_user_new');
     }
-
+    /**
+    * @Route("/mdpperdue",name="app_user_mdpperdue")
+    */
+    public function mdpperdue(){
+        return $this->render('user/mdpperdue.html.twig');
+    }
 }
