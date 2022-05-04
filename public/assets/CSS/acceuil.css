@@ -24,7 +24,6 @@ body{
     background-color: #F7F9F9;
 }
 
-
 .espace{
     margin-bottom:  25%;
 }
@@ -34,7 +33,7 @@ body{
 }
 @media(min-width: 992px){
     .centretableau{
-        margin-left: 29%;
+        margin-left: 20%;
     }
 }
 
@@ -44,10 +43,8 @@ body{
     }
 }
 
-
-
 .ecart{
-    margin-right: 50px;
+    margin-right: 250px;
 }
 
 
