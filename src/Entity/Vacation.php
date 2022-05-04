@@ -29,7 +29,7 @@ class Vacation
 
     /**
      * @ORM\Column(type="datetime", name="dateheurefin")
-     * @Assert\GreaterThan(dateheureDebut)
+     * @Assert\GreaterThan(propertyPath="dateheureDebut")
      */
     private $dateheureFin;
 

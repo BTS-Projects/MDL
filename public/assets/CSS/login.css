@@ -21,14 +21,29 @@ button{
     text-align: center;
 }
 
+@media(max-width:991px){
+  .alignetexte{
+    margin-left: 46% !important;
+}  
+}
 .alignetexte{
     margin-left: 47%;
+}
+
+@media(max-width:991px){
+    #alignetitre{
+    margin-left: 42% !important;
+}
 }
 
 #alignetitre{
     margin-left: 45%;
 }
-
+@media(max-width:991px){
+    #alignebouton{
+    margin-left: 45% !important;
+}
+}
 #alignebouton{
     margin-left: 46%;
 }
