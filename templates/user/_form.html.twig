@@ -2,13 +2,12 @@
 {# utilisation de classes bootstrap pour la mise en forme #}
         <div class="row">
                 <div class="col-12">
-                        {{ form_label(form.numLicence) }}
+                        <label> Numéro de licence</label>
                         {{ form_widget(form.numLicence) }}
                 </div>
                 <div class="col-12">
-                        {{ form_label(form.password) }}
                         {{ form_widget(form.password) }}
                 </div>
         </div>
-        <button class="btn btn-success">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}gh
+        <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

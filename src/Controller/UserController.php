@@ -16,17 +16,18 @@ use Symfony\Component\Mime\Address;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
+
 /**
  * @Route("/user")
  */
 class UserController extends AbstractController {
-    
+
     private $emailVerifier;
-    
-    public function __construct(EmailVerifier $emailVerifier)
-    {
+
+    public function __construct(EmailVerifier $emailVerifier) {
         $this->emailVerifier = $emailVerifier;
     }
+
     /**
      * @Route("/", name="app_user_index", methods={"GET"})
      */
@@ -39,47 +40,61 @@ class UserController extends AbstractController {
     /**
      * @Route("/new", name="app_user_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, UserPasswordEncoderInterface $passwordEncoder,EntityManagerInterface $entityManager): Response {
+    public function new(Request $request, UserPasswordEncoderInterface $passwordEncoder, EntityManagerInterface $entityManager): Response {
         $user = new User();
         $licencieRepo = $entityManager->getRepository(Licencie::class);
+        $userRepo = $entityManager->getRepository(User::class);
         $licencies = $licencieRepo->findAll();
-        $mail='';
-        
+        $users = $userRepo->findAll();
+        $mail = '';
+
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setPassword(
-                    $passwordEncoder->encodePassword($user, $user->getPassword())
-            );
-            $user->setRoles(["ROLE_INSCRIT"]);
-            $user->setIsVerified(false);
-            $i=0;
-            while($i < count($licencies) && $licencies[$i]->getNumlicence() != $user->getNumLicence()  ) {
+            //On cherche à savoir si l'utilisateur existe déjà
+            $i = 0;
+            while ($i < count($users) && $users[$i]->getNumlicence() != $user->getNumLicence()) {
                 $i++;
             }
-            if ($i < count($licencies)){
-                $mail = $licencies[$i]->getMail();
-                $user->setEmail($mail);
-                $entityManager->persist($user);
-                $entityManager->flush();
+            if ($i < count($users)) {
+                //oui il existe déjà
+                //redirect
+            } else {
+                //il n'existe pas on vérifie que c'est bien un licencier
+                $i = 0;
+                while ($i < count($licencies) && $licencies[$i]->getNumlicence() != $user->getNumLicence()) {
+                    $i++;
+                }
+                if ($i < count($licencies)) {
+                    //oui c'est un licencier on l'ajoute à la base de donnée
+                    $user->setPassword(
+                            $passwordEncoder->encodePassword($user, $user->getPassword())
+                    );
+                    $user->setRoles(["ROLE_INSCRIT"]);
+                    $user->setIsVerified(false);
+                    $mail = $licencies[$i]->getMail();
+                    $user->setEmail($mail);
+                    $entityManager->persist($user);
+                    $entityManager->flush();
+                    
+                    // generate a signed url and email it to the user
+                    $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
+                            (new TemplatedEmail())
+                                    ->from(new Address('admin@mdl.sio', 'Admin'))
+                                    ->to($mail)
+                                    ->subject('Please Confirm your Inscription')
+                                    ->htmlTemplate('user/confirmation_email.html.twig')
+                    );
+
+                    
+                } else {
+                    //erreur pas un licencier
+                }
+                return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
             }
-            else {
-                //flash a faire afficher sur la page car pas licencier 
-            }
-            
-            // generate a signed url and email it to the user
-            $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
-                    (new TemplatedEmail())
-                            ->from(new Address('admin@mdl.sio', 'Admin'))
-                            ->to($mail)
-                            ->subject('Please Confirm your Inscription')
-                            ->htmlTemplate('user/confirmation_email.html.twig')
-            );
-            
-            return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
         }
-        
+
 
         return $this->render('user/new.html.twig', [
                     'user' => $user,
@@ -125,12 +140,11 @@ class UserController extends AbstractController {
 
         return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
     }
-    
+
     /**
      * @Route("/verify/email", name="app_verify_email")
      */
-    public function verifyUserEmail(Request $request): Response
-    {
+    public function verifyUserEmail(Request $request): Response {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         // validate email confirmation link, sets User::isVerified=true and persists
@@ -147,4 +161,5 @@ class UserController extends AbstractController {
 
         return $this->redirectToRoute('app_user_new');
     }
+
 }
