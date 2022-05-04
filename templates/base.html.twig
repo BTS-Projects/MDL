@@ -23,6 +23,11 @@
     </head>
     {% include 'elements/navbar.html.twig' %}
     <body>
+        {% for message in app.flashes('inscriptionError') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
         {% block body %}{% endblock %}
     </body>
     {% include 'elements/footer.html.twig' %}

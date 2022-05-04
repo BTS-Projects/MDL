@@ -89,7 +89,7 @@ class UserController extends AbstractController {
 
                     
                 } else {
-                    //erreur pas un licencier
+                    $this->addFlash('inscriptionError', 'Le numéro de licencié est incorrect');
                 }
                 return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
             }
