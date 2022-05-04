@@ -2,22 +2,19 @@
 
 namespace App\Controller;
 
+use App\Entity\Licencie;
 use App\Entity\User;
 use App\Form\UserType;
-use App\Security\ApplicationAuthenticator;
 use App\Repository\UserRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mime\Address;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Bridge\Twig\Mime\TemplatedEmail;
-use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-use App\Repository\LicencieRepository;
-use Doctrine\ORM\EntityManagerInterface;
 /**
  * @Route("/user")
  */
@@ -50,8 +47,8 @@ class UserController extends AbstractController {
             $entityManager->flush();
             return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
         }
-        $licencieRepo = $entityManager->getRepository(\App\Entity\Licencie::class);
-        $licencie = $licencieRepo->findOneByNumLicence(\App\Entity\Licencie::class,$user->getNumLicence());
+        $licencieRepo = $entityManager->getRepository(Licencie::class);
+        $licencie = $licencieRepo->findOneByNumLicence(Licencie::class,$user->getNumLicence());
         
         // generate a signed url and email it to the user
         $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
