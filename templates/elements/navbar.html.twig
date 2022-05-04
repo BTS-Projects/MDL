@@ -18,6 +18,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('app_user_new') }}"> <h1 class="liensnavbar">S'inscrire</h1> </a>
             </li>
+            {% if app.user %}
+                <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_inscription') }}"> <h1 class="liensnavbar">Congrés</h1> </a>
+            </li>
+            {% endif %}
+                
         </ul>
     </div>
 </nav>
