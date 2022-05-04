@@ -41,6 +41,10 @@ class UserController extends AbstractController {
      */
     public function new(Request $request, UserPasswordEncoderInterface $passwordEncoder,EntityManagerInterface $entityManager): Response {
         $user = new User();
+        $licencieRepo = $entityManager->getRepository(Licencie::class);
+        $licencies = $licencieRepo->findAll();
+        $mail='';
+        
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
@@ -50,21 +54,31 @@ class UserController extends AbstractController {
             );
             $user->setRoles(["ROLE_INSCRIT"]);
             $user->setConfirm(false);
-            $entityManager->persist($user);
-            $entityManager->flush();
+            $i=0;
+            while($i < count($licencies) && $licencies[$i]->getNumlicence() != $user->getNumLicence()  ) {
+                $i++;
+            }
+            if ($i < count($licencies)){
+                $mail = $licencies[$i]->getMail();
+                $entityManager->persist($user);
+                $entityManager->flush();
+            }
+            else {
+                //flash a faire afficher sur la page car pas licencier 
+            }
+            
+            // generate a signed url and email it to the user
+            $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
+                    (new TemplatedEmail())
+                            ->from(new Address('admin@mdl.sio', 'Admin'))
+                            ->to($mail)
+                            ->subject('Please Confirm your Inscription')
+                            ->htmlTemplate('user/confirmation_email.html.twig')
+            );
+            
             return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
         }
-        $licencieRepo = $entityManager->getRepository(Licencie::class);
-        $licencie = $licencieRepo->findOneByNumLicence(Licencie::class,$user->getNumLicence());
         
-        // generate a signed url and email it to the user
-        $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
-                (new TemplatedEmail())
-                        ->from(new Address('admin@mdl.sio', 'Admin'))
-                        ->to($licencie->getMail())
-                        ->subject('Please Confirm your Inscription')
-                        ->htmlTemplate('user/confirmation_email.html.twig')
-        );
 
         return $this->render('user/new.html.twig', [
                     'user' => $user,
