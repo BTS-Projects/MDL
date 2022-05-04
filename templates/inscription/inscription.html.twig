@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    {#    <h1>Connecté : {{ licencie.getNom }} {{ licencie.getPrenom }}</h1>#}
+    {#    <h1>Numéro de licence : {{ licencie.getNumLicence }}</h1>#}
+    {#    <input type="email" value="{{ app.user.email }}">#}
+    <div class="espaceBlanc"></div>
+    <h1 class="h3l mb-3 font-weight-normal " id="AtelierH1">Atelier</h1>
+    <div style="margin-left: 150px">
+        {% for atelier in lesAtelier %}
+            <label>{{ atelier.getLibelle() }}</label>
+            <input type="checkbox">
+            <br>
+        {% endfor %}
+        <button type="submit">Valider</button>
+
+    </div>
+{% endblock %}
