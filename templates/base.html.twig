@@ -11,6 +11,7 @@
             <link href="{{ asset('assets/CSS/style.css') }}" rel="stylesheet" type="text/css"/>
             <link href="{{ asset('assets/CSS/acceuil.css') }}" rel="stylesheet" type="text/css"/>
             <link href="{{ asset('assets/CSS/login.css') }}" rel="stylesheet" type="text/css"/>
+            <link href="{{ asset('assets/CSS/inscriptions.css') }}" rel="stylesheet" type="text/css"/>
         {% endblock %}
 
         {% block javascripts %}
@@ -23,6 +24,11 @@
     </head>
     {% include 'elements/navbar.html.twig' %}
     <body>
+        {% for message in app.flashes('inscriptionError') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
         {% block body %}{% endblock %}
     </body>
     {% include 'elements/footer.html.twig' %}

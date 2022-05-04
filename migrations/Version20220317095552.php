@@ -25,11 +25,11 @@ final class Version20220317095552 extends AbstractMigration
         $this->addSql('ALTER TABLE atelier ADD idtheme VARCHAR(255) NOT NULL, ADD idvacation VARCHAR(255) NOT NULL, ADD idinscription VARCHAR(255) NOT NULL, DROP vacations_id');
         $this->addSql('ALTER TABLE categorie_chambre CHANGE libelle_categorie libellecategorie VARCHAR(255) NOT NULL');
         $this->addSql('ALTER TABLE club CHANGE NOM nom VARCHAR(50) NOT NULL, CHANGE ADRESSE1 adresse1 VARCHAR(60) NOT NULL, CHANGE CP cp VARCHAR(5) NOT NULL, CHANGE VILLE ville VARCHAR(60) NOT NULL, CHANGE TEL tel VARCHAR(14) NOT NULL');
-        $this->addSql('ALTER TABLE compte DROP FOREIGN KEY FK_CFF652605DAC5993');
-        $this->addSql('ALTER TABLE compte DROP FOREIGN KEY FK_CFF65260B56DCD74');
-        $this->addSql('DROP INDEX UNIQ_CFF65260B56DCD74 ON compte');
-        $this->addSql('DROP INDEX UNIQ_CFF652605DAC5993 ON compte');
-        $this->addSql('ALTER TABLE compte ADD idinscription VARCHAR(255) NOT NULL, ADD idlicencie VARCHAR(255) NOT NULL, DROP inscription_id, DROP licencie_id');
+//        $this->addSql('ALTER TABLE compte DROP FOREIGN KEY FK_CFF652605DAC5993');
+//        $this->addSql('ALTER TABLE compte DROP FOREIGN KEY FK_CFF65260B56DCD74');
+//        $this->addSql('DROP INDEX UNIQ_CFF65260B56DCD74 ON compte');
+//        $this->addSql('DROP INDEX UNIQ_CFF652605DAC5993 ON compte');
+//        $this->addSql('ALTER TABLE compte ADD idinscription VARCHAR(255) NOT NULL, ADD idlicencie VARCHAR(255) NOT NULL, DROP inscription_id, DROP licencie_id');
         $this->addSql('ALTER TABLE inscription CHANGE date_inscription dateinscription DATETIME NOT NULL');
         $this->addSql('ALTER TABLE licencie CHANGE CP cp VARCHAR(6) NOT NULL, CHANGE TEL tel VARCHAR(14) NOT NULL, CHANGE IDQUALITE idqualite VARCHAR(255) NOT NULL, CHANGE IDCLUB idclub VARCHAR(255) NOT NULL');
         $this->addSql('ALTER TABLE nuite DROP FOREIGN KEY FK_8D4CB7153243BB18');
