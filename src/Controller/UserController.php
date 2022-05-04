@@ -53,7 +53,6 @@ class UserController extends AbstractController {
                     $passwordEncoder->encodePassword($user, $user->getPassword())
             );
             $user->setRoles(["ROLE_INSCRIT"]);
-            
             $i=0;
             while($i < count($licencies) && $licencies[$i]->getNumlicence() != $user->getNumLicence()  ) {
                 $i++;
