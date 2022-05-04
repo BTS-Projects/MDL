@@ -3,15 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/templates/user/new.html.twig</file>
-            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/migrations/Version20220427143527.php</file>
-            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/src/Entity/User.php</file>
-            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/templates/user/_form.html.twig</file>
-            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/migrations/Version20220501143646.php</file>
-            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/migrations/Version20220503101954.php</file>
-            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/src/Controller/UserController.php</file>
-            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/src/Form/UserType.php</file>
-            <file>file:/C:/Users/valentine.schalckens/Documents/NetBeansProjects/MDL/migrations/Version20220429155306.php</file>
+            <file>file:/F:/BTS%20SIO%202/AP/CONTEXTE2/MDL/src/Controller/AccueilController.php</file>
+            <file>file:/F:/BTS%20SIO%202/AP/CONTEXTE2/MDL/src/Entity/Proposer.php</file>
+            <file>file:/F:/BTS%20SIO%202/AP/CONTEXTE2/MDL/templates/accueil/index.html.twig</file>
         </group>
     </open-files>
 </project-private>

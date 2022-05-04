@@ -19,9 +19,9 @@ final class Version20220503235534 extends AbstractMigration
 
     public function up(Schema $schema): void
     {
-        // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE atelier DROP idtheme, DROP idvacation, DROP idinscription');
-        $this->addSql('ALTER TABLE user ADD confirm TINYINT(1) NOT NULL');
+//        // this up() migration is auto-generated, please modify it to your needs
+//        $this->addSql('ALTER TABLE atelier DROP idtheme, DROP idvacation, DROP idinscription');
+//        $this->addSql('ALTER TABLE user ADD confirm TINYINT(1) NOT NULL');
     }
 
     public function down(Schema $schema): void
