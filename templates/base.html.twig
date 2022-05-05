@@ -24,19 +24,14 @@
     </head>
     {% include 'elements/navbar.html.twig' %}
     <body>
-        {% if app.flashes('success') %}
-            {% for message in app.flashes('success') %}
-                <div class="alert alert-success">
+        {# read and display all flash messages #}
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}">
                     {{ message }}
                 </div>
             {% endfor %}
-        {% else %}
-            {% for message in app.flashes('error') %}
-                <div class="alert alert-danger">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endif %}
+        {% endfor %}
         {% block body %}{% endblock %}
     </body>
     {% include 'elements/footer.html.twig' %}

@@ -59,7 +59,7 @@ class UserController extends AbstractController {
             }
             if ($i < count($users)) {
                 //oui il existe déjà
-                $this->addFlash('error', 'Le compte existe déjà');
+                $this->addFlash('danger', 'Le compte existe déjà');
                 //redirect
                 return $this->redirectToRoute('app_login', [], Response::HTTP_SEE_OTHER);
             } else {
@@ -91,12 +91,12 @@ class UserController extends AbstractController {
 
                     
                 } else {
-                    $this->addFlash('error', 'Le numéro de licencié est incorrect');
+                    $this->addFlash('danger', 'Le numéro de licencié est incorrect');
 
                     return $this->redirectToRoute('app_accueil', [], Response::HTTP_SEE_OTHER);     
 
                 }
-                $this->addFlash('success', 'La création de votre compte a bien était effectuer veuillez confirmer votre inscription par mail');
+                $this->addFlash('success', 'La création de votre compte a bien été effectuée veuillez confirmer votre inscription par mail');
                 return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
                 
             }
