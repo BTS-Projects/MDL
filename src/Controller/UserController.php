@@ -59,6 +59,7 @@ class UserController extends AbstractController {
             }
             if ($i < count($users)) {
                 //oui il existe déjà
+                $this->addFlash('error', 'Le compte existe déjà');
                 //redirect
                 return $this->redirectToRoute('app_login', [], Response::HTTP_SEE_OTHER);
             } else {
@@ -90,8 +91,8 @@ class UserController extends AbstractController {
 
                     
                 } else {
+                    $this->addFlash('error', 'Le numéro de licencié est incorrect');
                     return $this->redirectToRoute('app_accueil', [], Response::HTTP_SEE_OTHER);
-                    $this->addFlash('inscriptionError', 'Le numéro de licencié est incorrect');
                 }
                 return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
             }
