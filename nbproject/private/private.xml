@@ -3,10 +3,39 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/BTS%20SIO%202/AP/CONTEXTE2/MDL/src/Controller/AccueilController.php</file>
-            <file>file:/E:/BTS%20SIO%202/AP/CONTEXTE2/MDL/src/Controller/UserController.php</file>
-            <file>file:/E:/BTS%20SIO%202/AP/CONTEXTE2/MDL/templates/base.html.twig</file>
-            <file>file:/E:/BTS%20SIO%202/AP/CONTEXTE2/MDL/src/Entity/User.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/composer.json</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Entity/Hotel.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Repository/UserRepository.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/templates/base.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/MDL/templates/elements/navbar.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/MDL/migrations/Version20220503101954.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/templates/user/_delete_form.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Security/LogInFormAuthenticator.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Controller/SecurityController.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/public/index.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/config/packages/security.yaml</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Controller/AccueilController.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Controller/UserController.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/templates/user/new.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Form/UserType.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/templates/user/edit.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/MDL/migrations/Version20220504135237.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/.env</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Entity/User.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Repository/LicencieRepository.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Security/EmailVerifier.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/templates/user/_form.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/MDL/templates/accueil/index.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/MDL/templates/user/index.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Entity/Vacation.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/migrations/Version20220501143646.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/migrations/Version20220429155306.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/templates/user/show.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/MDL/config/services.yaml</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Entity/Licencie.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/migrations/Version20220427143527.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Repository/AtelierRepository.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/migrations/Version20220330142544.php</file>
         </group>
     </open-files>
 </project-private>
