@@ -87,9 +87,7 @@ class UserController extends AbstractController {
                                     ->to($mail)
                                     ->subject('Please Confirm your Inscription')
                                     ->htmlTemplate('user/confirmation_email.html.twig')
-                    );
-
-                    
+                    );   
                 } else {
                     $this->addFlash('error', 'Le numéro de licencié est incorrect');
 
@@ -167,11 +165,5 @@ class UserController extends AbstractController {
         $this->addFlash('success', 'Your email address has been verified.');
 
         return $this->redirectToRoute('app_user_new');
-    }
-    /**
-    * @Route("/mdpperdu",name="app_user_mdpperdu")
-    */
-    public function mdpperdu(){
-        return $this->render('user/mdpperdue.html.twig');
     }
 }
