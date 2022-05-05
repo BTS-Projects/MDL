@@ -12,19 +12,23 @@
             <li class="nav-item">
                 <a class="nav-link" href="/"> <h1 class="liensnavbar">Accueil</h1> </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_login') }}"> <h1 class="liensnavbar">Connexion</h1> </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_user_new') }}"> <h1 class="liensnavbar">S'inscrire</h1> </a>
+            </li>
+            
+            {#
             {% if is_granted("ROLE_USER") %}
-                
+
             {% elseif %}
-                
+
             {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_login') }}"> <h1 class="liensnavbar">Connexion</h1> </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_user_new') }}"> <h1 class="liensnavbar">S'inscrire</h1> </a>
-                </li>
+
             {% endif %}
-                
+            #}
+
         </ul>
     </div>
 </nav>

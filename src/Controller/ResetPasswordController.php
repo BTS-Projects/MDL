@@ -82,7 +82,7 @@ class ResetPasswordController extends AbstractController
      *
      * @Route("/reset/{token}", name="app_reset_password")
      */
-    public function reset(Request $request, UserPasswordEncoderInterface $userPasswordEncoder, TranslatorInterface $translator, string $token = null): Response
+    public function reset(Request $request, MailerInterface $mailer, UserPasswordEncoderInterface $userPasswordEncoder, TranslatorInterface $translator, string $token = null): Response
     {
         if ($token) {
             // We store the token in session and remove it from the URL, to avoid the URL being
@@ -129,6 +129,14 @@ class ResetPasswordController extends AbstractController
             // The session is cleaned up after the password has been changed.
             $this->cleanSessionAfterReset();
             $this->addFlash('success', 'Le mot de passe a bien été changé');
+            $email = (new TemplatedEmail())
+                ->from(new Address('admin@mdl.sio', "Bot mail MDL : Assises d'escrimes"))
+                ->to($user->getEmail())
+                ->subject('Your password has been changed')
+                ->htmlTemplate('reset_password/confirm_changed.html.twig')
+                
+            ;
+            $mailer->send($email);
             return $this->redirectToRoute('app_accueil');
         }
 
@@ -136,7 +144,6 @@ class ResetPasswordController extends AbstractController
             'resetForm' => $form->createView(),
         ]);
     }
-
     private function processSendingPasswordResetEmail(string $emailFormData, MailerInterface $mailer, TranslatorInterface $translator): RedirectResponse
     {
         $user = $this->entityManager->getRepository(User::class)->findOneBy([
