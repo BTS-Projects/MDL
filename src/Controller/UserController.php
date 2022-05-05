@@ -92,9 +92,13 @@ class UserController extends AbstractController {
                     
                 } else {
                     $this->addFlash('error', 'Le numéro de licencié est incorrect');
-                    return $this->redirectToRoute('app_accueil', [], Response::HTTP_SEE_OTHER);
+
+                    return $this->redirectToRoute('app_accueil', [], Response::HTTP_SEE_OTHER);     
+
                 }
+                $this->addFlash('success', 'La création de votre compte a bien était effectuer veuillez confirmer votre inscription par mail');
                 return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
+                
             }
         }
 
@@ -165,9 +169,9 @@ class UserController extends AbstractController {
         return $this->redirectToRoute('app_user_new');
     }
     /**
-    * @Route("/mdpperdue",name="app_user_mdpperdue")
+    * @Route("/mdpperdu",name="app_user_mdpperdu")
     */
-    public function mdpperdue(){
+    public function mdpperdu(){
         return $this->render('user/mdpperdue.html.twig');
     }
 }
