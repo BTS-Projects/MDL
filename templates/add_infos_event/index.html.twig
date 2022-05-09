@@ -1,20 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AddInfosEventController!{% endblock %}
+{% block title %}Add Infos about Atelier, Theme and Vacation{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/Projet_2021_2022/MDL/src/Controller/AddInfosEventController.php'|file_link(0) }}">src/Controller/AddInfosEventController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/Projet_2021_2022/MDL/templates/add_infos_event/index.html.twig'|file_link(0) }}">templates/add_infos_event/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <h1></h1>
+    {{ form_start(form) }}
+    {# utilisation de classes bootstrap pour la mise en forme #}
+    <div class="row">
+        <div class="col-12">
+            {{ form_label(form.choose_form) }}
+            {{ form_widget(form.choose_form) }}
+        </div>
+    </div>
+    <button class="btn btn-success">{{ button_label|default('Add') }}</button>
+    {{ form_end(form) }}
 {% endblock %}

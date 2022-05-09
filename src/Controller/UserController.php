@@ -97,7 +97,7 @@ class UserController extends AbstractController {
 
                 }
                 $this->addFlash('success', 'La création de votre compte a bien été effectuée veuillez confirmer votre inscription par mail');
-                return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
+                return $this->redirectToRoute('app_accueil', [], Response::HTTP_SEE_OTHER);
                 
             }
         }

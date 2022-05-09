@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Atelier;
 use App\Entity\Theme;
 use App\Entity\Vacation;
+use App\Form\AddInfosType;
 use App\Form\AtelierType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,10 +18,13 @@ class AddInfosEventController extends AbstractController
     /**
      * @Route("/add/infos/event", name="app_add_infos_event")
      */
-    public function index(): Response
+    public function index(Request $request, EntityManagerInterface $manager): Response
     {
+        $form = $this->createForm(AddInfosType::class);
+        $form->handleRequest($request);
+        
         return $this->render('add_infos_event/index.html.twig', [
-            'controller_name' => 'AddInfosEventController',
+            'form' => $form->createView(),
         ]);
     }
     /**
