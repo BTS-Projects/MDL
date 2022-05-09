@@ -6,10 +6,12 @@ Projet de groupe réalisé lors des ateliers professionnels dans le cadre des é
 
 ### En tant que licencié souhaitant s'inscrire :
 Numéro de licence : 16790322264
+
 Mdp : hello
 
 ### En tant qu'employer de la Maison des Ligues :
 Adresse email : v.schalckens@gmail.com
+
 Mdp : hello
 
 ### Base de données :
