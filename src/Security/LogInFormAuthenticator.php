@@ -48,13 +48,13 @@ class LogInFormAuthenticator extends AbstractFormLoginAuthenticator implements P
     public function getCredentials(Request $request)
     {
         $credentials = [
-            'numLicence' => $request->request->get('numLicence'),
+            'identifiant' => $request->request->get('identifiant'),
             'password' => $request->request->get('password'),
             'csrf_token' => $request->request->get('_csrf_token'),
         ];
         $request->getSession()->set(
             Security::LAST_USERNAME,
-            $credentials['numLicence']
+            $credentials['identifiant']
         );
 
         return $credentials;
@@ -67,10 +67,13 @@ class LogInFormAuthenticator extends AbstractFormLoginAuthenticator implements P
             throw new InvalidCsrfTokenException();
         }
 
-        $user = $this->entityManager->getRepository(User::class)->findOneBy(['numLicence' => $credentials['numLicence']]);
+        $user = $this->entityManager->getRepository(User::class)->findOneBy(['numLicence' => $credentials['identifiant']]);
 
         if (!$user) {
-            throw new UsernameNotFoundException('Num Licence could not be found.');
+            $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $credentials['identifiant']]);
+            if (!$user) {
+                throw new UsernameNotFoundException('Num Licence could not be found.');
+            }
         }
 
         return $user;

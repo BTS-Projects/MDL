@@ -68,7 +68,11 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->numLicence;
+        if ($this->numLicence == null) {
+            return (string) $this->email;
+        } else {
+            return (string) $this->numLicence;
+        }
     }
 
     /**
