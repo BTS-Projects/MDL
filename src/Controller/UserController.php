@@ -29,14 +29,16 @@ class UserController extends AbstractController {
     }
 
     /**
+     * Fonction mise en commentaire jusqu'a la gestion des comptes ADMIN pour des raison de sécurité 
+     * (il ne faut pas que tout le monde ai accès au listing des utilisateurs)
      * @Route("/", name="app_user_index", methods={"GET"})
-     */
+     
     public function index(UserRepository $userRepository): Response {
         return $this->render('user/index.html.twig', [
                     'users' => $userRepository->findAll(),
         ]);
     }
-
+    */
     /**
      * @Route("/new", name="app_user_new", methods={"GET", "POST"})
      */

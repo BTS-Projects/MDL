@@ -24,10 +24,6 @@ body{
     background-color: #F7F9F9;
 }
 
-.espace{
-    margin-bottom:  25%;
-}
-
 .centrertexte{
     text-align: center;
 }
@@ -41,10 +37,6 @@ body{
     .centretableau{
         margin-left: 15%;
     }
-}
-
-.ecart{
-    margin-right: 250px;
 }
 
 
