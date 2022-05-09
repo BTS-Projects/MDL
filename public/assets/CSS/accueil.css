@@ -38,7 +38,12 @@ body{
         margin-left: 15%;
     }
 }
-
+.espace{
+    margin-bottom:  25%;
+}
+.ecart{
+    margin-right: 250px;
+}
 
 @media(max-width :991px){
     .bouttonnavbar{

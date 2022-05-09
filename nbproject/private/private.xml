@@ -6,6 +6,7 @@
             <file>file:/D:/Projet_2021_2022/MDL/src/Entity/Theme.php</file>
             <file>file:/D:/Projet_2021_2022/MDL/public/assets/CSS/inscriptions.css</file>
             <file>file:/D:/Projet_2021_2022/MDL/.env</file>
+            <file>file:/D:/Projet_2021_2022/MDL/public/assets/CSS/accueil.css</file>
             <file>file:/D:/Projet_2021_2022/MDL/public/assets/CSS/style.css</file>
             <file>file:/D:/Projet_2021_2022/MDL/src/Entity/User.php</file>
             <file>file:/D:/Projet_2021_2022/MDL/templates/elements/footer.html.twig</file>
@@ -17,10 +18,10 @@
             <file>file:/D:/Projet_2021_2022/MDL/templates/security/login.html.twig</file>
             <file>file:/D:/Projet_2021_2022/MDL/templates/elements/navbar.html.twig</file>
             <file>file:/D:/Projet_2021_2022/MDL/src/Entity/Vacation.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/public/docs/api/index.html</file>
             <file>file:/D:/Projet_2021_2022/MDL/src/Security/LogInFormAuthenticator.php</file>
             <file>file:/D:/Projet_2021_2022/MDL/src/Controller/SecurityController.php</file>
             <file>file:/D:/Projet_2021_2022/MDL/public/index.php</file>
-            <file>file:/D:/Projet_2021_2022/MDL/public/assets/CSS/acceuil.css</file>
             <file>file:/D:/Projet_2021_2022/MDL/src/Form/AtelierType.php</file>
             <file>file:/D:/Projet_2021_2022/MDL/src/Entity/Atelier.php</file>
             <file>file:/D:/Projet_2021_2022/MDL/src/Controller/AccueilController.php</file>
