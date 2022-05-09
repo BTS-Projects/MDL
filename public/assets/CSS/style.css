@@ -47,7 +47,15 @@ navbar + div{
     width:100%;       
 }
 
-
 .liensnavbar{
     color: black !important;
 }
+
+.divFooter{
+    padding-top: 2.5rem;
+}
+
+.espaceBlanc{
+    margin-top: 75px;
+} 
+
