@@ -2,6 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+
         <group>
             <file>file:/D:/Projet_2021_2022/MDL/src/Form/UserType.php</file>
             <file>file:/D:/Projet_2021_2022/MDL/public/assets/CSS/inscriptions.css</file>
@@ -24,5 +25,6 @@
             <file>file:/D:/Projet_2021_2022/MDL/src/Controller/AddInfosEventController.php</file>
             <file>file:/D:/Projet_2021_2022/MDL/src/Controller/AtelierController.php</file>
         </group>
+
     </open-files>
 </project-private>
