@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Infos about Atelier, Theme and Vacation{% endblock %}
+
+{% block body %}
+    <h1></h1>
+    {{ form_start(form) }}
+    {# utilisation de classes bootstrap pour la mise en forme #}
+    <div class="row">
+        <div class="col-12">
+            {{ form_label(form.choose_form) }}
+            {{ form_widget(form.choose_form) }}
+        </div>
+    </div>
+    <button class="btn btn-success">{{ button_label|default('Add') }}</button>
+    {{ form_end(form) }}
+{% endblock %}

@@ -20,7 +20,7 @@ final class Version20220504135237 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('DROP TABLE connexion');
+        //$this->addSql('DROP TABLE connexion');
         $this->addSql('ALTER TABLE user ADD is_verified TINYINT(1) NOT NULL, ADD email VARCHAR(180) NOT NULL');
     }
 
