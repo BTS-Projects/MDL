@@ -12,6 +12,36 @@
             {{ form_widget(form.choose_form) }}
         </div>
     </div>
+    {#<div class="row">
+        <div class="col-12">
+            {{ form_label(form.libelle) }}
+            {{ form_widget(form.libelle) }}
+        </div>
+    </div>
+        <div class="row">
+        <div class="col-12">
+            {{ form_label(nbPlaceMaxi) }}
+            {{ form_widget(nbPlaceMaxi) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            {{ form_label(form.dateheureDebut) }}
+            {{ form_widget(form.dateheureFin) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            {{ form_label(form.themes) }}
+            {{ form_widget(form.themes) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            {{ form_label(form.ateliers) }}
+            {{ form_widget(form.ateliers) }}
+        </div>
+    </div>#}
     <button class="btn btn-success">{{ button_label|default('Add') }}</button>
     {{ form_end(form) }}
 {% endblock %}

@@ -20,11 +20,13 @@ class AddInfosEventController extends AbstractController
      */
     public function index(Request $request, EntityManagerInterface $manager): Response
     {
+        $choice = '';
         $form = $this->createForm(AddInfosType::class);
         $form->handleRequest($request);
         
         return $this->render('add_infos_event/index.html.twig', [
             'form' => $form->createView(),
+            'choice' => $choice,
         ]);
     }
     /**

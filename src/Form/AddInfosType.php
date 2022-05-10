@@ -18,7 +18,7 @@ use function dd;
 class AddInfosType extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options): void {
-        $choice = '';
+
         $builder
                 ->add('choose_form', ChoiceType::class, [
                     'choices' => [
@@ -27,34 +27,76 @@ class AddInfosType extends AbstractType {
                         'Vacation' => $choice = 'vacation',
                     ]
                 ])
-        ;
-        $builder->get('choose_form')->addEventListener(
-                FormEvents::POST_SUBMIT,
-                function (FormEvent $event) {
+                ->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) {
+
                     $form = $event->getForm();
-                    if ($form->getData() == 'atelier') {
+                    $config = $form->get('choose_form')->getConfig();
+                    $options = $config->getOptions();
+                    $data = $event->getData();
+
+                    if ($data == 'atelier') {
                         
-                    } else if ($form->getData() == 'theme') {
-                        $theme = new Theme();
-//                        $form->getParent()->
-//                                'libelleTheme', EntityType::class, [
-//                                    'class' => Theme::class,
-//                                    'choice_label' => 'libelle',
-//                                    'expanded' => false,
-//                                    'multiple' => false,
-//                                ])
-//                                ->add('ateliersTheme', EntityType::class, [
-//                                    'class' => Theme::class,
-//                                    'choice_label' => 'ateliers',
-//                                    'expanded' => true,
-//                                    'multiple' => true,
-//                        ])
+                        $form->getParent()
+                        ->add('libelle', TextType::class)
+                        ->add('nbPlaceMaxi')
+                        ->add('themes', EntityType::class, [
+                            'class' => Theme::class,
+                            'choice_label' => 'libelle',
+                            'expanded' => true,
+                            'multiple' => true,
+                        ])
                         ;
-                    } else {
-                        
+                    } else if ($data == 'theme') {
+                        $form->getParent()
+                        ->add('libelle', TextType::class)
+                        ->add('ateliers', EntityType::class, [
+                            'class' => Atelier::class,
+                            'choice_label' => 'libelle',
+                            'expanded' => true,
+                            'multiple' => true,
+                        ])
+                        ;
+                    } else if ($data == 'vacation') {
+                        $form->getParent()
+                        ->add('dateheureDebut', DateType::class)
+                        ->add('dateheureFin', DateType::class)
+                        ->add('atelier', EntityType::class, [
+                            'class' => Atelier::class,
+                            'choice_label' => 'libelle',
+                            'expanded' => true,
+                            'multiple' => true,
+                        ])
+                        ;
                     }
-                }
-        );
+                });
+
+//        $builder->get('choose_form')->addEventListener(
+//                FormEvents::POST_SUBMIT,
+//                function (FormEvent $event) {
+//                    $form = $event->getForm();
+//                    if ($form->getData() == 'atelier') {
+//                        
+//                    } else if ($form->getData() == 'theme') {
+//                        $theme = new Theme();
+////                        $form->getParent()->
+////                                'libelleTheme', EntityType::class, [
+////                                    'class' => Theme::class,
+////                                    'choice_label' => 'libelle',
+////                                    'expanded' => false,
+////                                    'multiple' => false,
+////                                ])
+////                                ->add('ateliersTheme', EntityType::class, [
+////                                    'class' => Theme::class,
+////                                    'choice_label' => 'ateliers',
+////                                    'expanded' => true,
+////                                    'multiple' => true,
+////                        ])
+//                        ;
+//                    } else {
+//                        
+//                    }
+//                }
+//        );
     }
 
     private function addThemeFields(FormInterface $form, Theme $theme) {

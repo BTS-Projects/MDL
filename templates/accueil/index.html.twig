@@ -21,43 +21,45 @@
             </table>
         </div>
     {% endfor %}
-    <table class="centretableau">
-        <tr>
-            <td>
-                <div class="ecart">
-                    <h2 class="centrertexte"> les hotels </h2>
-                    {% for hotel in lesHotels %}
-                        <table class="table table-dark table-striped">
-                            <tbody>
-                                <tr>
-                            <p>{{ hotel.getPnom }}</p>
-                            {% if hotel.getId == 1 %}
-                                <p>Single : 50€ la nuit<br>Double : 55€ la nuit</p>
-                                
-                                {% else %}
-                                <p>Single : 45€ la nuit<br>Double 50€ la nuit</p>
-                            {% endif %}
-                            </tr>
+    <div>
+        <table class="centretableau">
+            <tr>
+                <td>
+                    <div class="ecart">
+                        <h2 class="centrertexte"> les hotels </h2>
+                        {% for hotel in lesHotels %}
+                            <table class="table table-dark table-striped">
+                                <tbody>
+                                    <tr>
+                                <p>{{ hotel.getPnom }}</p>
+                                {% if hotel.getId == 1 %}
+                                    <p>Single : 50€ la nuit<br>Double : 55€ la nuit</p>
 
-                            </tbody>
-                        </table>
-                    </div>
-                {% endfor %}
-            </td><td>
-                <div>
-                    <h2 class="centrertexte">Les inscriptions :</h2>
-                    <br>
-                    <p>Le prix d'inscription au congrés et de 110€.
+                                {% else %}
+                                    <p>Single : 45€ la nuit<br>Double 50€ la nuit</p>
+                                    {% endif %}
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    {% endfor %}
+                </td><td>
+                    <div>
+                        <h2 class="centrertexte">Les inscriptions :</h2>
                         <br>
-                        Les accompagnateurs devront payer 30€ par repas ceci étant le<br>   
-                    <li>samedi midi</li>
-                    <li>samedi soir</li>
-                    <li>dimanche midi</li></p>
-                    <br>
-                </div>
-            </td>
-        </tr>
-    </table>
+                        <p>Le prix d'inscription au congrés et de 110€.
+                            <br>
+                            Les accompagnateurs devront payer 30€ par repas ceci étant le<br>   
+                        <li>samedi midi</li>
+                        <li>samedi soir</li>
+                        <li>dimanche midi</li></p>
+                        <br>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div class="espace"></div>
 {% endblock %}
 
