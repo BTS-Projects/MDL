@@ -39,6 +39,11 @@ class Inscription
      */
     private $compte;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Nuite::class, mappedBy="inscription")
+     */
+    private $nuites;
+
     public function __construct()
     {
         $this->ateliers = new ArrayCollection();
@@ -124,6 +129,36 @@ class Inscription
         }
 
         $this->compte = $compte;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Nuite>
+     */
+    public function getNuites(): Collection
+    {
+        return $this->nuites;
+    }
+
+    public function addNuite(Nuite $nuite): self
+    {
+        if (!$this->nuites->contains($nuite)) {
+            $this->nuites[] = $nuite;
+            $nuite->setInscription($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNuite(Nuite $nuite): self
+    {
+        if ($this->nuites->removeElement($nuite)) {
+            // set the owning side to null (unless already changed)
+            if ($nuite->getInscription() === $this) {
+                $nuite->setInscription(null);
+            }
+        }
 
         return $this;
     }

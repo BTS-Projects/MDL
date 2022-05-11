@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 09 mai 2022 à 02:34
+-- Généré le : mer. 11 mai 2022 à 08:16
 -- Version du serveur : 8.0.29
 -- Version de PHP : 7.4.26
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `atelier` (
   `libelle` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nb_place_maxi` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `atelier`
@@ -154,7 +154,10 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20220503101954', '2022-05-03 22:45:42', 271),
 ('DoctrineMigrations\\Version20220503235534', '2022-05-03 23:56:08', 489),
 ('DoctrineMigrations\\Version20220504135237', '2022-05-04 15:01:58', 611),
-('DoctrineMigrations\\Version20220505013008', '2022-05-05 01:30:40', 634);
+('DoctrineMigrations\\Version20220505013008', '2022-05-05 01:30:40', 634),
+('DoctrineMigrations\\Version20220511002521', '2022-05-11 00:34:51', 42),
+('DoctrineMigrations\\Version20220511003434', '2022-05-11 00:35:53', 619),
+('DoctrineMigrations\\Version20220511080930', '2022-05-11 08:14:30', 45);
 
 -- --------------------------------------------------------
 
@@ -192,7 +195,7 @@ INSERT INTO `hotel` (`id`, `pnom`, `adresse1`, `adresse2`, `cp`, `ville`, `tel`,
 DROP TABLE IF EXISTS `inscription`;
 CREATE TABLE IF NOT EXISTS `inscription` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `dateinscription` datetime NOT NULL,
+  `dateinscription` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -569,8 +572,9 @@ CREATE TABLE IF NOT EXISTS `nuite` (
   `datenuitee` datetime NOT NULL,
   `idhotel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `idcategorie` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `idinscription` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
+  `inscription_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_8D4CB7155DAC5993` (`inscription_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -800,25 +804,31 @@ INSERT INTO `theme_atelier` (`theme_id`, `atelier_id`) VALUES
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `num_licence` varchar(180) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `num_licence` varchar(180) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `roles` json NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_verified` tinyint(1) NOT NULL,
   `email` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `inscription_id` int DEFAULT NULL,
+  `licencie_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `UNIQ_8D93D649D8A9FCA1` (`num_licence`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  UNIQUE KEY `UNIQ_8D93D649D8A9FCA1` (`num_licence`),
+  UNIQUE KEY `UNIQ_8D93D6495DAC5993` (`inscription_id`),
+  UNIQUE KEY `UNIQ_8D93D649B56DCD74` (`licencie_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `num_licence`, `roles`, `password`, `is_verified`, `email`) VALUES
-(9, '16360514319', '[\"ROLE_INSCRIT\"]', '$argon2id$v=19$m=65536,t=4,p=1$THpQU0E1NVJYRUJPL3VHSA$R/Wwy7BETOeeHNEJmcZs9JNjUDSbtjVRrBFk2lHkAfo', 0, 'sem.Nulla.interdum@IntegermollisInteger.edu'),
-(10, '16230510482', '[\"ROLE_INSCRIT\"]', '$argon2id$v=19$m=65536,t=4,p=1$QXp1azdLLnRrdFdnazlLeA$AQ2x+termX2P+9LXe6kn2dO7alBNpVeTuoYvKe94yb8', 0, 'tellus.faucibus@tincidunt.org'),
-(11, '16040216453', '[\"ROLE_INSCRIT\"]', '$argon2id$v=19$m=65536,t=4,p=1$dTR5L0xHcGtlR0swN200ZA$m+ENf32ecsVSazI7Wf7GCaSZBUR33l48PFJqv6xd8Rs', 0, 'erat.eget@ullamcorperviverraMaecenas.co.uk'),
-(14, NULL, '[\"ROLE_USER\"]', '$argon2id$v=19$m=65536,t=4,p=1$bDhzOWxMYy52cE9mZFl1eA$IyE6h01YuKa56c2iMCGcqWUXtxeEF1vnXv7UmBUdWlE', 1, 'v.schalckens@gmail.com'),
-(16, '16790322264', '[\"ROLE_INSCRIT\"]', '$argon2id$v=19$m=65536,t=4,p=1$OTdOZDVMcnMxTWJEWkljMQ$/Upt5OVheX5YH5D+8KD6M6+USC2oNEyvG+R89xY1MzU', 1, 'Duis.at@miacmattis.org');
+INSERT INTO `user` (`id`, `num_licence`, `roles`, `password`, `is_verified`, `email`, `inscription_id`, `licencie_id`) VALUES
+(9, '16360514319', '[\"ROLE_INSCRIT\"]', '$argon2id$v=19$m=65536,t=4,p=1$THpQU0E1NVJYRUJPL3VHSA$R/Wwy7BETOeeHNEJmcZs9JNjUDSbtjVRrBFk2lHkAfo', 0, 'sem.Nulla.interdum@IntegermollisInteger.edu', NULL, 1),
+(10, '16230510482', '[\"ROLE_INSCRIT\"]', '$argon2id$v=19$m=65536,t=4,p=1$QXp1azdLLnRrdFdnazlLeA$AQ2x+termX2P+9LXe6kn2dO7alBNpVeTuoYvKe94yb8', 0, 'tellus.faucibus@tincidunt.org', NULL, 6),
+(11, '16040216453', '[\"ROLE_INSCRIT\"]', '$argon2id$v=19$m=65536,t=4,p=1$dTR5L0xHcGtlR0swN200ZA$m+ENf32ecsVSazI7Wf7GCaSZBUR33l48PFJqv6xd8Rs', 0, 'erat.eget@ullamcorperviverraMaecenas.co.uk', NULL, 10),
+(14, NULL, '[\"ROLE_USER\"]', '$argon2id$v=19$m=65536,t=4,p=1$bDhzOWxMYy52cE9mZFl1eA$IyE6h01YuKa56c2iMCGcqWUXtxeEF1vnXv7UmBUdWlE', 1, 'v.schalckens@gmail.com', NULL, NULL),
+(16, '16790322264', '[\"ROLE_INSCRIT\"]', '$argon2id$v=19$m=65536,t=4,p=1$OTdOZDVMcnMxTWJEWkljMQ$/Upt5OVheX5YH5D+8KD6M6+USC2oNEyvG+R89xY1MzU', 1, 'Duis.at@miacmattis.org', NULL, 3),
+(19, '16400522656', '[\"ROLE_INSCRIT\"]', '$argon2id$v=19$m=65536,t=4,p=1$anI2ekpHd0RVd0xDYlNvbQ$1n+CkmZTyp8Dkzd1vmfq0Wm43rwV0aFzb18Gc2uHhBA', 1, 'vitae.aliquet@Cras.ca', NULL, 9),
+(21, '16190532913', '[\"ROLE_INSCRIT\"]', '$argon2id$v=19$m=65536,t=4,p=1$R2txblBBay5HTDZVZzRWMg$maNUkC+GGDY8CFQZu7WsOW2E47aq4cIm+iBsYg2GQDI', 1, 'metus@volutpat.com', NULL, 23);
 
 -- --------------------------------------------------------
 
@@ -855,6 +865,12 @@ ALTER TABLE `inscription_restauration`
   ADD CONSTRAINT `FK_FAFBDB87C6CB929` FOREIGN KEY (`restauration_id`) REFERENCES `restauration` (`id`) ON DELETE CASCADE;
 
 --
+-- Contraintes pour la table `nuite`
+--
+ALTER TABLE `nuite`
+  ADD CONSTRAINT `FK_8D4CB7155DAC5993` FOREIGN KEY (`inscription_id`) REFERENCES `inscription` (`id`);
+
+--
 -- Contraintes pour la table `reset_password_request`
 --
 ALTER TABLE `reset_password_request`
@@ -866,6 +882,13 @@ ALTER TABLE `reset_password_request`
 ALTER TABLE `theme_atelier`
   ADD CONSTRAINT `FK_B8D81D0059027487` FOREIGN KEY (`theme_id`) REFERENCES `theme` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `FK_B8D81D0082E2CF35` FOREIGN KEY (`atelier_id`) REFERENCES `atelier` (`id`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `FK_8D93D6495DAC5993` FOREIGN KEY (`inscription_id`) REFERENCES `inscription` (`id`),
+  ADD CONSTRAINT `FK_8D93D649B56DCD74` FOREIGN KEY (`licencie_id`) REFERENCES `licencie` (`id`);
 
 --
 -- Contraintes pour la table `vacation`
