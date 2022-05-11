@@ -27,9 +27,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('app_vacation_new') }}"> <h3 class="liensnavbar">Ajouter une vacation</h3> </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> <h3 class="liensnavbar">Modifier une vacation</h3> </a>
-                </li>
             {% elseif is_granted("ROLE_INSCRIT")%}
                 <li class="nav-item">
                     <a class="nav-link" href="/"> <h3 class="liensnavbar">Accueil</h3> </a>
