@@ -7,16 +7,29 @@
     <h1>Inscription au congrès :</h1>
     <h3>Connecté : {{ app.user.licencie.nom }} {{ app.user.licencie.getPrenom }}</h1>
     <h3>Numéro de licence : {{ app.user.numLicence }}</h1>
-    <input id="email" type="email" value="{{ app.user.email }}">
-    <div class="espaceBlanc"></div>
-    <h1 class="h3l mb-3 font-weight-normal " id="AtelierH1">Atelier</h1>
-    <div style="margin-left: 150px">
-        {% for atelier in lesAtelier %}
-            <label>{{ atelier.getLibelle() }}</label>
-            <input type="checkbox">
-            <br>
-        {% endfor %}
-        <button type="submit">Valider</button>
+        
+        <div id="mail">
+            <h4>Modifier son adresse mail :</h4>
+            <label for="email"> Email :</label
+            <input id="email" name="email" type="email" value="{{ app.user.email }}">
+        </div>
 
-    </div>
-{% endblock %}
+        <div class="espaceBlanc"></div>
+        <h1 class="h3l mb-3 font-weight-normal " id="AtelierH1">Atelier</h1>
+        <div id="ateliers" style="margin-left: 150px">
+            {% for atelier in lesAtelier %}
+                <label>{{ atelier.getLibelle() }}</label>
+                <input type="checkbox">
+                <br>
+            {% endfor %}
+
+        </div>
+        <div id="hotels">
+            <h4> Options proposés d'hotels :</h4>
+            {% for hotel in lesHotels %}
+                <label> {{ hotel.pnom }} </label>
+                <input type='checkbox'>
+            {% endfor %}
+        </div>
+        <button type="submit">Valider</button>
+    {% endblock %}

@@ -11,13 +11,14 @@ use App\Form\InscriptionType;
 use App\Repository\LicencieRepository;
 use App\Entity\Licencie;
 use App\Repository\AtelierRepository;
+use \App\Repository\HotelRepository;
 
 class InscriptionController extends AbstractController
 {
     /**
      * @Route("/inscription", name="app_inscription")
      */
-    public function Inscription(UserRepository $repo,LicencieRepository $repoLicencie,AtelierRepository $repoAtelier){
+    public function Inscription(UserRepository $repo,LicencieRepository $repoLicencie,AtelierRepository $repoAtelier, HotelRepository $repoHotel){
         
         $licencie = new Licencie();
         $lesLicencies = $repoLicencie->findAll();
@@ -30,10 +31,13 @@ class InscriptionController extends AbstractController
             $licencie = $lesLicencies[$i];
         }
         $lesAteliers =$repoAtelier->findAll();
+        $lesHotels = $repoHotel->findAll();
         $form = $this->createForm(InscriptionType::class);
         return $this->render('inscription/inscription.html.twig',
                 [   'licencie'=>$licencie,
                     'lesAtelier'=>$lesAteliers,
-                    'form'=>$form->createView()]);
+                    'lesHotels'=>$lesHotels,
+                    'form'=>$form->createView()
+                ]);
     }
 }
