@@ -1,11 +1,13 @@
+
 {% extends 'base.html.twig' %}
 
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
-    {#    <h1>Connecté : {{ licencie.getNom }} {{ licencie.getPrenom }}</h1>#}
-    {#    <h1>Numéro de licence : {{ licencie.getNumLicence }}</h1>#}
-    {#    <input type="email" value="{{ app.user.email }}">#}
+    <h1>Inscription au congrès :</h1>
+    <h3>Connecté : {{ app.user.licencie.nom }} {{ app.user.licencie.getPrenom }}</h1>
+    <h3>Numéro de licence : {{ app.user.numLicence }}</h1>
+    <input id="email" type="email" value="{{ app.user.email }}">
     <div class="espaceBlanc"></div>
     <h1 class="h3l mb-3 font-weight-normal " id="AtelierH1">Atelier</h1>
     <div style="margin-left: 150px">

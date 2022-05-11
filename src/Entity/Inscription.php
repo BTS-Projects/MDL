@@ -20,7 +20,7 @@ class Inscription
     private $id;
 
     /**
-     * @ORM\Column(type="datetime", name="dateinscription")
+     * @ORM\Column(type="datetime", name="dateinscription", nullable=true)
      */
     private $dateInscription;
 
@@ -30,14 +30,19 @@ class Inscription
     private $ateliers;
 
     /**
-     * @ORM\OneToMany(targetEntity=Nuite::class, mappedBy="inscription")
-     */
-    private $nuites;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Restauration::class)
      */
     private $restaurations;
+
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, mappedBy="inscription", cascade={"persist", "remove"})
+     */
+    private $compte;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Nuite::class, mappedBy="inscription")
+     */
+    private $nuites;
 
     public function __construct()
     {
@@ -88,6 +93,47 @@ class Inscription
     }
 
     /**
+     * @return Collection<int, Restauration>
+     */
+    public function getRestaurations(): Collection
+    {
+        return $this->restaurations;
+    }
+
+    public function addRestauration(Restauration $restauration): self
+    {
+        if (!$this->restaurations->contains($restauration)) {
+            $this->restaurations[] = $restauration;
+        }
+
+        return $this;
+    }
+
+    public function removeRestauration(Restauration $restauration): self
+    {
+        $this->restaurations->removeElement($restauration);
+
+        return $this;
+    }
+
+    public function getCompte(): ?User
+    {
+        return $this->compte;
+    }
+
+    public function setCompte(User $compte): self
+    {
+        // set the owning side of the relation if necessary
+        if ($compte->getInscription() !== $this) {
+            $compte->setInscription($this);
+        }
+
+        $this->compte = $compte;
+
+        return $this;
+    }
+
+    /**
      * @return Collection<int, Nuite>
      */
     public function getNuites(): Collection
@@ -113,52 +159,6 @@ class Inscription
                 $nuite->setInscription(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getCompte(): ?Compte
-    {
-        return $this->compte;
-    }
-
-    public function setCompte(?Compte $compte): self
-    {
-        // unset the owning side of the relation if necessary
-        if ($compte === null && $this->compte !== null) {
-            $this->compte->setInscription(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($compte !== null && $compte->getInscription() !== $this) {
-            $compte->setInscription($this);
-        }
-
-        $this->compte = $compte;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Restauration>
-     */
-    public function getRestaurations(): Collection
-    {
-        return $this->restaurations;
-    }
-
-    public function addRestauration(Restauration $restauration): self
-    {
-        if (!$this->restaurations->contains($restauration)) {
-            $this->restaurations[] = $restauration;
-        }
-
-        return $this;
-    }
-
-    public function removeRestauration(Restauration $restauration): self
-    {
-        $this->restaurations->removeElement($restauration);
 
         return $this;
     }

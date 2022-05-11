@@ -10,8 +10,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use App\Form\InscriptionType;
 use App\Repository\LicencieRepository;
 use App\Entity\Licencie;
-use App\Entity\Compte;
 use App\Repository\AtelierRepository;
+
 class InscriptionController extends AbstractController
 {
     /**
@@ -19,20 +19,20 @@ class InscriptionController extends AbstractController
      */
     public function Inscription(UserRepository $repo,LicencieRepository $repoLicencie,AtelierRepository $repoAtelier){
         
-//        $licencie = new Licencie;
-//        $lesLicencies = $repoLicencie->findAll();
-//        $user = $repo->findAll();
-//        $i = 0;
-//        while( $i < count($lesLicencies) && $lesLicencies[$i]->getNumlicence() != $user->getNumLicence() ) {
-//            $i++;
-//        }
-//        if ($i < count($lesLicencies)) {
-//            $licencie = $lesLicencies[0];//$i
-//        }
+        $licencie = new Licencie();
+        $lesLicencies = $repoLicencie->findAll();
+        $user = $repo->findAll();
+        $i = 0;
+        while( $i < count($lesLicencies) && $lesLicencies[$i]->getNumlicence() != $user[$i]->getNumLicence() ) {
+            $i++;
+        }
+        if ($i < count($lesLicencies)) {
+            $licencie = $lesLicencies[$i];
+        }
         $lesAteliers =$repoAtelier->findAll();
         $form = $this->createForm(InscriptionType::class);
         return $this->render('inscription/inscription.html.twig',
-                [   //'licencie'=>$licencie,
+                [   'licencie'=>$licencie,
                     'lesAtelier'=>$lesAteliers,
                     'form'=>$form->createView()]);
     }

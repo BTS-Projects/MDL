@@ -5,9 +5,11 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(fields={"numLicence"}, message="There is already an account with this numLicence")
  */
 class User implements UserInterface
 {
@@ -44,6 +46,18 @@ class User implements UserInterface
      */
     private $email;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Inscription::class, inversedBy="compte", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $inscription;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Licencie::class, inversedBy="compte", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $licencie;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,7 +82,11 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->numLicence;
+        if ($this->numLicence == null) {
+            return (string) $this->email;
+        } else {
+            return (string) $this->numLicence;
+        }
     }
 
     /**
@@ -143,6 +161,30 @@ class User implements UserInterface
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getInscription(): ?Inscription
+    {
+        return $this->inscription;
+    }
+
+    public function setInscription(Inscription $inscription): self
+    {
+        $this->inscription = $inscription;
+
+        return $this;
+    }
+
+    public function getLicencie(): ?Licencie
+    {
+        return $this->licencie;
+    }
+
+    public function setLicencie(Licencie $licencie): self
+    {
+        $this->licencie = $licencie;
 
         return $this;
     }

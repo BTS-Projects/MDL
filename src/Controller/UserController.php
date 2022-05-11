@@ -29,14 +29,16 @@ class UserController extends AbstractController {
     }
 
     /**
+     * Fonction mise en commentaire jusqu'a la gestion des comptes ADMIN pour des raison de sécurité 
+     * (il ne faut pas que tout le monde ai accès au listing des utilisateurs)
      * @Route("/", name="app_user_index", methods={"GET"})
-     */
+     
     public function index(UserRepository $userRepository): Response {
         return $this->render('user/index.html.twig', [
                     'users' => $userRepository->findAll(),
         ]);
     }
-
+    */
     /**
      * @Route("/new", name="app_user_new", methods={"GET", "POST"})
      */
@@ -59,7 +61,9 @@ class UserController extends AbstractController {
             }
             if ($i < count($users)) {
                 //oui il existe déjà
+                $this->addFlash('danger', 'Le compte existe déjà');
                 //redirect
+                return $this->redirectToRoute('app_login', [], Response::HTTP_SEE_OTHER);
             } else {
                 //il n'existe pas on vérifie que c'est bien un licencier
                 $i = 0;
@@ -71,6 +75,7 @@ class UserController extends AbstractController {
                     $user->setPassword(
                             $passwordEncoder->encodePassword($user, $user->getPassword())
                     );
+                    $user->setLicencie($licencies[$i]);
                     $user->setRoles(["ROLE_INSCRIT"]);
                     $user->setIsVerified(false);
                     $mail = $licencies[$i]->getMail();
@@ -85,13 +90,16 @@ class UserController extends AbstractController {
                                     ->to($mail)
                                     ->subject('Please Confirm your Inscription')
                                     ->htmlTemplate('user/confirmation_email.html.twig')
-                    );
-
-                    
+                    );   
                 } else {
-                    //erreur pas un licencier
+                    $this->addFlash('danger', 'Le numéro de licencié est incorrect');
+
+                    return $this->redirectToRoute('app_accueil', [], Response::HTTP_SEE_OTHER);     
+
                 }
-                return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
+                $this->addFlash('success', 'La création de votre compte a bien été effectuée veuillez confirmer votre inscription par mail');
+                return $this->redirectToRoute('app_accueil', [], Response::HTTP_SEE_OTHER);
+                
             }
         }
 
@@ -153,13 +161,12 @@ class UserController extends AbstractController {
         } catch (VerifyEmailExceptionInterface $exception) {
             $this->addFlash('verify_email_error', $exception->getReason());
 
-            return $this->redirectToRoute('app_user_new');
+            return $this->redirectToRoute('app_login');
         }
 
         // @TODO Change the redirect on success and handle or remove the flash message in your templates
         $this->addFlash('success', 'Your email address has been verified.');
 
-        return $this->redirectToRoute('app_user_new');
+        return $this->redirectToRoute('app_accueil');
     }
-
 }

@@ -42,19 +42,20 @@ navbar + div{
 }
 
 .footer{
-    position: fixed;
     bottom:0;
     width:100%;       
+}
+
+.liensnavbar{
+    
+    color: black !important;
 }
 
 .divFooter{
     padding-top: 2.5rem;
 }
 
-.liensnavbar{
-    color: black !important;
-}
-
 .espaceBlanc{
     margin-top: 75px;
-}
+} 
+

@@ -9,15 +9,48 @@
     </button>    
     <div class="navbar-collapse collapse show" id="navbarColor01">
         <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/"> <h1 class="liensnavbar">Accueil</h1> </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_login') }}"> <h1 class="liensnavbar">Connexion</h1> </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_user_new') }}"> <h1 class="liensnavbar">S'inscrire</h1> </a>
-            </li>
+
+
+            {% if is_granted("ROLE_USER") %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/"> <h3 class="liensnavbar">Accueil</h3> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_login') }}"> <h3 class="liensnavbar">Connexion/Déconnexion</h3> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_atelier_new') }}"> <h3 class="liensnavbar">Ajouter un atelier</h3> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_theme_new') }}"> <h3 class="liensnavbar">Ajouter un thème</h3> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_vacation_new') }}"> <h3 class="liensnavbar">Ajouter une vacation</h3> </a>
+                </li>
+            {% elseif is_granted("ROLE_INSCRIT")%}
+                <li class="nav-item">
+                    <a class="nav-link" href="/"> <h3 class="liensnavbar">Accueil</h3> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_login') }}"> <h3 class="liensnavbar">Connexion/Déconnexion</h3> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_inscription') }}"> <h3 class="liensnavbar">S'inscrire au congrès</h3> </a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/"> <h3 class="liensnavbar">Accueil</h3> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_login') }}"> <h3 class="liensnavbar">Connexion/Déconnexion</h3> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_user_new') }}"> <h3 class="liensnavbar">Créer son compte</h3> </a>
+                </li>
+
+            {% endif %}
+
+
         </ul>
     </div>
 </nav>

@@ -38,9 +38,9 @@ class Nuite
     /**
      * @ORM\ManyToOne(targetEntity=Inscription::class, inversedBy="nuites")
      * @ORM\JoinColumn(nullable=false)
-     * @ORM\Column(name="idinscription")
      */
     private $inscription;
+
 
     public function getId(): ?int
     {

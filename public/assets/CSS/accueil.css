@@ -1,0 +1,55 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 7 avr. 2022, 08:55:09
+    Author     : dorian.dubois
+*/
+
+#presentation{
+    margin-left:150px;
+}
+
+.accueil{
+    margin-left: 150px;
+}
+
+.ateliers{
+    text-align: center;
+}
+
+body{
+    background-color: #F7F9F9;
+}
+
+.centrertexte{
+    text-align: center;
+}
+@media(min-width: 992px){
+    .centretableau{
+        margin-left: 20%;
+    }
+}
+
+@media(max-width: 991px){
+    .centretableau{
+        margin-left: 15%;
+    }
+}
+.espace{
+    margin-bottom:  25%;
+}
+.ecart{
+    margin-right: 250px;
+}
+
+@media(max-width :991px){
+    .bouttonnavbar{
+        margin-right: 65%;
+    }
+}
+.boutonnavbar{
+    margin-right: 63%;
+}

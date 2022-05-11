@@ -3,13 +3,74 @@
 
 {% block body %}
     <br>
+    <h1 class="d-flex justify-content-center"> Congrès : 6ème Assises de l'Escrime</h1>
     <h1 class="d-flex justify-content-center"> Du samedi 17 au dimanche 18 septembre 2022</h1>
     <br>
-    <h3 id="presentation-atelier" >Presentation des ateliers</h3>
+    <h3>Présentation des ateliers :</h3>
     <br>
-    {% for ateliers in lesAteliers %}
+    <div id='ateliers'>
+        <table class='table-striped table-bordered'>
+            <tr>
+                <th>Ateliers</th>
+                <th>Thèmes</th>
+                <th>Nombre de place</th>
+            </tr>
+            {% for atelier in lesAteliers %}
+                <tr>
+                    <td>{{ atelier.libelle }}</td>
+
+                    <td>
+                        <ul>
+                            {% for theme in atelier.getThemes %}
+                                <li>{{ theme.libelle }}</li>
+                                {% endfor %}
+                        </ul>
+                    </td>
+                    <td> {{ atelier.nbPlaceMaxi }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {#<div id='hotel'>
+        <table class="table-striped table-bordered">
+            <tr>
+                <th> Hotel </th>
+                <th> Adresse </th>
+                <th> Offres </th>
+                <th> Coordonnées </th>
+            </tr>
+            {% for hotel in lesHotels %}
+                <tr>
+                    <td> {{ hotel.pnom }}</td>
+                    <td> 
+                        {{ hotel.adresse1 }} -
+                        {% if hotel.adresse2 %}
+                            {{ hotel.adresse2 }} -
+                        {% endif %}
+                        {{ hotel.cp }} -
+                        {{ hotel.ville }}
+                    </td>
+                    <td>
+                        <ul>
+                        {% for propose in proposers %}
+                            {% if hotel.id == propose.getIdHotel %}
+                                {% for categorie in categories %}
+                                    {% if categorie.id == proposer.categorie %}
+                                        <li> Chambre {{ categorie.libelle }} à {{ propose.tarifnuite }} la nuit</li>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor%}
+                        </ul>
+                    </td>
+                    <td> {{ hotel.tel }} - {{ hotel.mail }} </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>#}
+    {#{% for ateliers in lesAteliers %}
         <div class="ateliers centrertexte">
-            <table class="table table-dark table-striped ">
+            <table class="table table-dark table-striped">
                 <thead>
                     <tr>{{ ateliers.getLibelle }}</tr>
                 </thead>
@@ -20,44 +81,48 @@
                     </tr>
             </table>
         </div>
-    {% endfor %}
-    <table class="centretableau">
-        <tr>
-            <td>
-                <div class="ecart">
-                    <h2 class="centrertexte"> les hotels </h2>
-                    {% for hotel in lesHotels %}
-                        <table class="table table-dark table-striped">
-                            <tbody>
-                                <tr>
-                            <p>{{ hotel.getPnom }}</p>
-                            {% if hotel.getId == 1 %}
-                                <p>Single : 50€ la nuit<br>Double : 55€ la nuit</p>
-                                
-                                {% else %}
-                                <p>Single : 45€ la nuit<br>Double 50€ la nuit</p>
-                            {% endif %}
-                            </tr>
+    {% endfor %}#}
+    <div>
+        <table class="centretableau">
+            <tr>
+                <td>
+                    <div class="ecart">
+                        <h2 class="centrertexte"> les hotels </h2>
+                        {% for hotel in lesHotels %}
+                            <table class="table-striped table-bordered">
+                                <tbody>
+                                    <tr>
+                                <p>{{ hotel.getPnom }}</p>
+                                {% if hotel.getId == 1 %}
+                                    <p>Single : 50€ la nuit<br>Double : 55€ la nuit</p>
 
-                            </tbody>
-                        </table>
-                    </div>
-                {% endfor %}
-            </td><td>
-                <div>
-                    <h2 class="centrertexte">Les inscriptions :</h2>
-                    <br>
-                    <p>Le prix d'inscription au congrés et de 110€.
+                                {% else %}
+                                    <p>Single : 45€ la nuit<br>Double 50€ la nuit</p>
+                                    {% endif %}
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    {% endfor %}
+                </td><td>
+                    <div>
+                        <h2 class="centrertexte">Les inscriptions :</h2>
                         <br>
-                        Les accompagnateurs devront payer 30€ par repas ceci étant le<br>   
-                    <li>samedi midi</li>
-                    <li>samedi soir</li>
-                    <li>dimanche midi</li></p>
-                    <br>
-                </div>
-            </td>
-        </tr>
-    </table>
+                        <p>Le prix d'inscription au congrés et de 110€.</p>
+                        <br>
+                        <p>Les accompagnateurs devront payer 30€ par repas, ceux ci étant le<br></p>
+                        <ul>
+                            <li>samedi midi</li>
+                            <li>samedi soir</li>
+                            <li>dimanche midi</li>
+                        </ul>
+                        <br>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div class="espace"></div>
 {% endblock %}
 
