@@ -30,11 +30,6 @@ class Inscription
     private $ateliers;
 
     /**
-     * @ORM\OneToMany(targetEntity=Nuite::class, mappedBy="inscription")
-     */
-    private $nuites;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Restauration::class)
      */
     private $restaurations;
@@ -88,36 +83,6 @@ class Inscription
     public function removeAtelier(Atelier $atelier): self
     {
         $this->ateliers->removeElement($atelier);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Nuite>
-     */
-    public function getNuites(): Collection
-    {
-        return $this->nuites;
-    }
-
-    public function addNuite(Nuite $nuite): self
-    {
-        if (!$this->nuites->contains($nuite)) {
-            $this->nuites[] = $nuite;
-            $nuite->setInscription($this);
-        }
-
-        return $this;
-    }
-
-    public function removeNuite(Nuite $nuite): self
-    {
-        if ($this->nuites->removeElement($nuite)) {
-            // set the owning side to null (unless already changed)
-            if ($nuite->getInscription() === $this) {
-                $nuite->setInscription(null);
-            }
-        }
 
         return $this;
     }
