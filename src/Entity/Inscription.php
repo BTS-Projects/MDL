@@ -20,7 +20,7 @@ class Inscription
     private $id;
 
     /**
-     * @ORM\Column(type="datetime", name="dateinscription")
+     * @ORM\Column(type="datetime", name="dateinscription", nullable=true)
      */
     private $dateInscription;
 
@@ -38,6 +38,11 @@ class Inscription
      * @ORM\ManyToMany(targetEntity=Restauration::class)
      */
     private $restaurations;
+
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, mappedBy="inscription", cascade={"persist", "remove"})
+     */
+    private $compte;
 
     public function __construct()
     {
@@ -117,28 +122,6 @@ class Inscription
         return $this;
     }
 
-    public function getCompte(): ?Compte
-    {
-        return $this->compte;
-    }
-
-    public function setCompte(?Compte $compte): self
-    {
-        // unset the owning side of the relation if necessary
-        if ($compte === null && $this->compte !== null) {
-            $this->compte->setInscription(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($compte !== null && $compte->getInscription() !== $this) {
-            $compte->setInscription($this);
-        }
-
-        $this->compte = $compte;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Restauration>
      */
@@ -159,6 +142,23 @@ class Inscription
     public function removeRestauration(Restauration $restauration): self
     {
         $this->restaurations->removeElement($restauration);
+
+        return $this;
+    }
+
+    public function getCompte(): ?User
+    {
+        return $this->compte;
+    }
+
+    public function setCompte(User $compte): self
+    {
+        // set the owning side of the relation if necessary
+        if ($compte->getInscription() !== $this) {
+            $compte->setInscription($this);
+        }
+
+        $this->compte = $compte;
 
         return $this;
     }

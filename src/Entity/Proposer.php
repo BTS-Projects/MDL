@@ -57,6 +57,11 @@ class Proposer
     {
         return $this->hotel;
     }
+    
+//    public function getIdHotel(): ?string 
+//    {
+//        return $this->getHotel()->getId();
+//    }
 
     public function setHotel(?Hotel $hotel): self
     {

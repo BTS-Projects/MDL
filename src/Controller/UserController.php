@@ -75,6 +75,7 @@ class UserController extends AbstractController {
                     $user->setPassword(
                             $passwordEncoder->encodePassword($user, $user->getPassword())
                     );
+                    $user->setLicencie($licencies[$i]);
                     $user->setRoles(["ROLE_INSCRIT"]);
                     $user->setIsVerified(false);
                     $mail = $licencies[$i]->getMail();
@@ -160,12 +161,12 @@ class UserController extends AbstractController {
         } catch (VerifyEmailExceptionInterface $exception) {
             $this->addFlash('verify_email_error', $exception->getReason());
 
-            return $this->redirectToRoute('app_user_new');
+            return $this->redirectToRoute('app_login');
         }
 
         // @TODO Change the redirect on success and handle or remove the flash message in your templates
         $this->addFlash('success', 'Your email address has been verified.');
 
-        return $this->redirectToRoute('app_user_new');
+        return $this->redirectToRoute('app_accueil');
     }
 }
