@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 11 mai 2022 à 08:16
+-- Généré le : mer. 11 mai 2022 à 08:46
 -- Version du serveur : 8.0.29
 -- Version de PHP : 7.4.26
 
@@ -731,16 +731,16 @@ INSERT INTO `theme` (`id`, `libelle`) VALUES
 (18, 'Observations et analyses sur l\'encadrement actuel'),
 (19, 'Propositions de nouveaux schémas d\'organisation'),
 (20, 'Profils types et pratiques innovantes'),
-(21, 'Critères et seuils nécessaires Ã  la pérennité de l\'emploi'),
+(21, 'Critères et seuils nécessaires à  la pérennité de l\'emploi'),
 (22, 'Exercice du métier d\'enseignant (avantages et inconvénients)'),
 (23, 'Présentation'),
 (24, 'Fonctionnement'),
 (25, 'Objectifs'),
-(26, 'Nouveaux diplÃ´mes'),
+(26, 'Nouveaux diplômes'),
 (27, 'Financements (I.F.F.E)'),
-(28, 'Les enjeux climatiques, Ã©nergÃ©tiques et Ã©conomiques'),
-(29, 'Sport et dÃ©veloppement durable'),
-(30, 'DÃ©marche fÃ©dÃ©rale'),
+(28, 'Les enjeux climatiques, énergétiques et économiques'),
+(29, 'Sport et développement durable'),
+(30, 'Démarche fédérale'),
 (31, 'Echange');
 
 -- --------------------------------------------------------

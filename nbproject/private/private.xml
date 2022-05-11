@@ -2,29 +2,56 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-
         <group>
-            <file>file:/D:/Projet_2021_2022/MDL/src/Form/UserType.php</file>
-            <file>file:/D:/Projet_2021_2022/MDL/public/assets/CSS/inscriptions.css</file>
-            <file>file:/D:/Projet_2021_2022/MDL/public/assets/CSS/accueil.css</file>
-            <file>file:/D:/Projet_2021_2022/MDL/public/assets/CSS/style.css</file>
-            <file>file:/D:/Projet_2021_2022/MDL/templates/elements/footer.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Entity/Theme.php</file>
             <file>file:/D:/Projet_2021_2022/MDL/public/assets/CSS/login.css</file>
             <file>file:/D:/Projet_2021_2022/MDL/templates/base.html.twig</file>
-            <file>file:/D:/Projet_2021_2022/MDL/src/Form/AddInfosType.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/templates/theme/_form.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Controller/InscriptionController.php</file>
             <file>file:/D:/Projet_2021_2022/MDL/templates/elements/navbar.html.twig</file>
-            <file>file:/D:/Projet_2021_2022/MDL/templates/accueil/index.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Controller/ThemeController.php</file>
             <file>file:/D:/Projet_2021_2022/MDL/src/Controller/SecurityController.php</file>
-            <file>file:/D:/Projet_2021_2022/MDL/src/Controller/VacationController.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Form/AtelierType.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Controller/AccueilController.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Controller/UserController.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/templates/user/new.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/MDL/templates/inscription/inscription.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/MDL/.env</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Entity/User.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/config/packages/doctrine.yaml</file>
+            <file>file:/D:/Projet_2021_2022/MDL/templates/user/index.html.twig</file>
             <file>file:/D:/Projet_2021_2022/MDL/templates/atelier/show.html.twig</file>
             <file>file:/D:/Projet_2021_2022/MDL/templates/add_infos_event/edit.html.twig</file>
-            <file>file:/D:/Projet_2021_2022/MDL/src/Form/AtelierType.php</file>
             <file>file:/D:/Projet_2021_2022/MDL/src/Entity/Atelier.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Entity/Licencie.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/composer.json</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Entity/Hotel.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Entity/Inscription.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/public/assets/CSS/accueil.css</file>
+            <file>file:/D:/Projet_2021_2022/MDL/public/assets/CSS/style.css</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Form/AddInfosType.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/migrations/Version20220511003434.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Entity/CategorieChambre.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Form/InscriptionType.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/public/index.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Entity/Nuite.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/templates/theme/show.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Entity/ResetPasswordRequest.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Entity/Club.php</file>
             <file>file:/D:/Projet_2021_2022/MDL/templates/add_infos_event/index.html.twig</file>
-            <file>file:/D:/Projet_2021_2022/MDL/src/Controller/UserController.php</file>
-            <file>file:/D:/Projet_2021_2022/MDL/src/Controller/AddInfosEventController.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Entity/Proposer.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/templates/theme/new.html.twig</file>
             <file>file:/D:/Projet_2021_2022/MDL/src/Controller/AtelierController.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/public/assets/CSS/inscriptions.css</file>
+            <file>file:/D:/Projet_2021_2022/MDL/templates/atelier/index.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/MDL/templates/elements/footer.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/MDL/templates/user/_form.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/MDL/templates/accueil/index.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/MDL/templates/user/show.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Controller/VacationController.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/migrations/Version20220511080930.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/migrations/Version20220511002521.php</file>
+            <file>file:/D:/Projet_2021_2022/MDL/src/Controller/AddInfosEventController.php</file>
         </group>
-
     </open-files>
 </project-private>
